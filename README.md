@@ -68,11 +68,12 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 | VGG11 | | ? | ? | ? | ? |
 | VGG16 | | ? | ? | ? | ? |
 | VGG19 | | ? | ? | ? | ? |
-| ResNet20 v1 | | ? | ? | ? | ? |
-| ResNet32 v1 | | ? | ? | ? | ? |
-| ResNet44 v1 | | ? | ? | ? | ? |
-| ResNet56 v1 | | ? | ? | ? | ? |
-| ResNet110 v1 | | 6.61 | ? | ? | ? |
-| ResNet110 v2 | | ? | ? | ? | ? |
-| ResNet164 v2 | | ? | ? | 6.1 | ? |
-| ResNet1001 v2 | | ? | ? | ? | ? |
+| ResNet20 v1 | 0.27M | 8.75 | ? | ? | ? |
+| ResNet32 v1 | 0.46M | 7.51 | ? | ? | ? |
+| ResNet44 v1 | 0.66M | 7.17 | ? | ? | ? |
+| ResNet56 v1 | 0.85M | 6.97 | ? | ? | ? |
+| ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? | ? |
+| ResNet164 v1 |  | ? | 5.93 | ? | ? |
+| ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 | ? |
+| ResNet164 v2 | | ? | 5.46 | ? | ? |
+| ResNet1001 v2 | | ? | 4.92 | ? | ? |
