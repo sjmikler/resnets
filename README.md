@@ -22,7 +22,7 @@ Implemented models:
     - Resnet110
     - Resnet1001
 
-  From "Identity Mappings in Deep Residual Networks" (with preactivated blocks):
+  From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     - Resnet20
     - Resnet32
     - Resnet44
