@@ -44,7 +44,7 @@ Run using: python run_experiments.py
 - LR = 0.001 for iterations [48000, 64000)
 - Weight decay = 0.0001
 
-## Example of experiment:
+## Example of an experiment:
 ```
 module: 'Models.Resnets'
 model: 'cifar_resnet110'
@@ -74,5 +74,5 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 | ResNet56 v1 | | ? | ? | ? | ? |
 | ResNet110 v1 | | 6.61 | ? | ? | ? |
 | ResNet110 v2 | | ? | ? | ? | ? |
-| ResNet164 v2 | | ? | ? | 6.4 | ? |
+| ResNet164 v2 | | ? | ? | 6.1 | ? |
 | ResNet1001 v2 | | ? | ? | ? | ? |
