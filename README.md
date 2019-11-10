@@ -64,15 +64,15 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 
 ## Error rate comparision with results reported on CIFAR-10:
 
-| architecture | parameters | reported best | reported mean | best of this | mean of this |
-| ---: | :---: | :---: | :---: | :---: | :---: |
-| VGG16 | | 8.45 | ? | ? | ? |
-| ResNet20 v1 | 0.27M | 8.75 | ? | ? | ? |
-| ResNet32 v1 | 0.46M | 7.51 | ? | ? | ? |
-| ResNet44 v1 | 0.66M | 7.17 | ? | ? | ? |
-| ResNet56 v1 | 0.85M | 6.97 | ? | ? | ? |
-| ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? | ? |
-| ResNet164 v1 |  | ? | 5.93 | ? | ? |
-| ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 | ? |
-| ResNet164 v2 | | ? | 5.46 | ? | ? |
-| ResNet1001 v2 | | ? | 4.92 | ? | ? |
+| architecture | parameters | reported best | reported mean | this repository |
+| ---: | :---: | :---: | :---: | :---: |
+| VGG16 | | 8.45 | ? | 7.26 |
+| ResNet20 v1 | 0.27M | 8.75 | ? | 8.39 |
+| ResNet32 v1 | 0.46M | 7.51 | ? | ? |
+| ResNet44 v1 | 0.66M | 7.17 | ? | ? |
+| ResNet56 v1 | 0.85M | 6.97 | ? | ? |
+| ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? |
+| ResNet164 v1 |  | ? | 5.93 | ? |
+| ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 |
+| ResNet164 v2 | | ? | 5.46 | ? |
+| ResNet1001 v2 | | ? | 4.92 | ? |
