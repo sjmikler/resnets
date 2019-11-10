@@ -15,21 +15,25 @@ Implemented models (cifar versions only):
     - VGG19
 
   From "Deep Residual Learning for Image Recognition":
-    - Resnet20
-    - Resnet32
-    - Resnet44
-    - Resnet56
-    - Resnet110
-    - Resnet1001
+    - ResNet20
+    - ResNet32
+    - ResNet44
+    - ResNet56
+    - ResNet110
+    - ResNet1001
 
   From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    - Resnet20
-    - Resnet32
-    - Resnet44
-    - Resnet56
-    - Resnet110
-    - Resnet164
-    - Resnet1001
+    - ResNet20
+    - ResNet32
+    - ResNet44
+    - ResNet56
+    - ResNet110
+    - ResNet164
+    - ResNet1001
+    
+  TODO:
+    - ResNeXt
+    - EfficientNet
 ```
 
 Default training schedule:
