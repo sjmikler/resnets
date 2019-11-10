@@ -1,7 +1,7 @@
 # cifar-vs-tensorflow2
 Nice and tidy implementation of classical neural network for classification in tensorflow 2.0
 
-Requires:
+Requirements:
 - tensorflow 2.0
 
 Set experiments in experiments.yaml \
