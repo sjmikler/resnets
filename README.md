@@ -1,6 +1,6 @@
 # cifar-vs-tensorflow2
-**Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
-Everything in one place, with results matching those reported in papers.**
+Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
+Everything in one place, with results matching those reported in papers.
 
 Requirements:
 - tensorflow-gpu==2.0
