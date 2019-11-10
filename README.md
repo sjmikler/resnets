@@ -37,12 +37,12 @@ Run using: python run_experiments.py
 ```
 
 ## Default training schedule:
-- SGD with momentum 0.9
-- warm-up LR = 0.01 for iterations [0, 400)
-- LR = 0.1 for iterations [400, 32000)
-- LR = 0.01 for iterations [32000, 48000)
-- LR = 0.001 for iterations [48000, 64000)
-- Weight decay = 0.0001
+- SGD with momentum **0.9**
+- warm-up LR = **0.01** for iterations **[0, 400)**
+- LR = **0.1** for iterations **[400, 32000)**
+- LR = **0.01** for iterations **[32000, 48000)**
+- LR = **0.001** for iterations **[48000, 64000)**
+- Weight decay = **0.0001**
 
 ## Example of an experiment:
 ```
