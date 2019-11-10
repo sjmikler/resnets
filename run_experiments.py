@@ -1,8 +1,11 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-import yaml, importlib
+import yaml
+import logging
+import importlib
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' 
+logging.getLogger('tensorflow').disabled = True
 from cifar_training_tools import cifar_training, cifar_error_test
+
 
 def print_dict(d, tabs=0):
     tab = '\t'
