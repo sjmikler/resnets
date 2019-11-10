@@ -65,9 +65,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 
 | architecture | parameters | reported best | reported mean | best of this | mean of this |
 | ---: | :---: | :---: | :---: | :---: | :---: |
-| VGG11 | | ? | ? | ? | ? |
-| VGG16 | | ? | ? | ? | ? |
-| VGG19 | | ? | ? | ? | ? |
+| VGG16 | | 8.45 | ? | ? | ? |
 | ResNet20 v1 | 0.27M | 8.75 | ? | ? | ? |
 | ResNet32 v1 | 0.46M | 7.51 | ? | ? | ? |
 | ResNet44 v1 | 0.66M | 7.17 | ? | ? | ? |
