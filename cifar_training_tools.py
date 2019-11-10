@@ -74,10 +74,10 @@ def cifar_training(model, logdir, run_name, val_interval, num_steps, log_interva
 
             if training_step % log_interval == 0:
                 with writer.as_default():
-                    c_loss, r_loss, acc = cls_loss.result(), reg_loss.result(), accuracy.result()
-                    print(f" c_loss: {c_loss:^6.3f} | r_loss: {r_loss:^6.3f} | err: {acc:^6.3f}", end='\r')
+                    c_loss, r_loss, err = cls_loss.result(), reg_loss.result(), 1-accuracy.result()
+                    print(f" c_loss: {c_loss:^6.3f} | r_loss: {r_loss:^6.3f} | err: {err:^6.3f}", end='\r')
 
-                    tf.summary.scalar('train/error_rate', 1-acc, training_step)
+                    tf.summary.scalar('train/error_rate', err, training_step)
                     tf.summary.scalar('train/classification_loss', c_loss, training_step)
                     tf.summary.scalar('train/regularization_loss', r_loss, training_step)
                     tf.summary.scalar('train/learnig_rate', optimizer._decayed_lr('float32'), training_step)
@@ -152,8 +152,8 @@ def cifar_error_test(model, tr_len=20, vd_len=2):
 
         training_step += 1
         step(x, y, training=True)
-        c_loss, r_loss, acc = cls_loss.result(), reg_loss.result(), accuracy.result()
-        print(f" c_loss: {c_loss:^6.3f} | r_loss: {r_loss:^6.3f} | err: {acc:^6.3f}", end='\r')
+        c_loss, r_loss, err = cls_loss.result(), reg_loss.result(), 1-accuracy.result()
+        print(f" c_loss: {c_loss:^6.3f} | r_loss: {r_loss:^6.3f} | err: {err:^6.3f}", end='\r')
 
     for x, y in ds['test']:
         step(x, y, training=False)
