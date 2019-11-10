@@ -2,7 +2,8 @@
 Nice and tidy implementation of classical neural networks for classification in tensorflow 2.0
 
 Requirements:
-- tensorflow 2.0
+- tensorflow-gpu=2.0
+- tensorflow_datasets
 
 Set experiments in experiments.yaml \
 Run using: python run_experiments.py
