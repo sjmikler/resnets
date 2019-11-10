@@ -71,7 +71,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 ## Error rate comparision with results reported on CIFAR-10:
 
 | architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: |
 | VGG16 | | 8.45 | ? | 7.26 |
 | ResNet20 v1 | 0.27M | 8.75 | ? | 8.39 |
 | ResNet32 v1 | 0.46M | 7.51 | ? | ? |
