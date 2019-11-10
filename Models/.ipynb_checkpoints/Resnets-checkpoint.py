@@ -36,10 +36,11 @@ def preactivation_block(x, filters, stride=1):
     global _omit_first_activation
     if _omit_first_activation:
         _omit_first_activation = False
+        flow = x
     else:
-        x = bn_relu(x)
+        flow = bn_relu(x)
         
-    c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(x)
+    c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(flow)
     c2 = regularized_padded_conv(filters, kernel_size=3)(bn_relu(c1))
     
     x = shortcut(x, filters, stride, mode=_shortcut_mode)
@@ -50,10 +51,11 @@ def bootleneck_block(x, filters, stride=1):
     global _omit_first_activation
     if _omit_first_activation:
         _omit_first_activation = False
+        flow = x
     else:
-        x = bn_relu(x)
+        flow = bn_relu(x)
         
-    c1 = regularized_padded_conv(filters//4, kernel_size=1)(x)
+    c1 = regularized_padded_conv(filters//4, kernel_size=1)(flow)
     c2 = regularized_padded_conv(filters//4, kernel_size=3, strides=stride)(bn_relu(c1))
     c3 = regularized_padded_conv(filters, kernel_size=1)(bn_relu(c2))
     
