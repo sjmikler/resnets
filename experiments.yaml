@@ -1,0 +1,166 @@
+# module: 'Models.Resnets'
+# model: 'Resnet'
+# model_parameters:
+#     input_shape: [32, 32, 3]
+#     n_classes: 10
+#     weight_decay: 0.0001
+#     group_sizes: [18, 18, 18]
+#     features: [64, 128, 256]
+#     strides: [1, 2, 2]
+#     first_conv:
+#         filters: 16
+#         kernel_size: 3
+#         strides: 1
+#     shortcut_mode: 'B'
+#     block_type: 'bootleneck'    
+# train_parameters:
+#     logdir: 'sobota'
+#     run_name: 'cifar_resnet164_B'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.VGGs'
+# model: 'cifar_vgg11'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'vgg11'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.VGGs'
+# model: 'cifar_vgg16'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'vgg16'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.VGGs'
+# model: 'cifar_vgg19'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'vgg19'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet20'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet20'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet32'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet32'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet44'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet44'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet56'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet56_pre'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet56'
+# model_parameters:
+#     block_type: 'original'
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet56_org'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
+# ---
+module: 'Models.Resnets'
+model: 'cifar_resnet110'
+model_parameters:
+    block_type: 'preactivated'
+train_parameters:
+    logdir: 'ndz_11'
+    run_name: 'resnet110_pre'
+    num_steps: 64000
+    log_interval: 400
+    val_interval: 4000
+---
+module: 'Models.Resnets'
+model: 'Resnet'
+model_parameters:
+    input_shape: [32, 32, 3]
+    n_classes: 10
+    weight_decay: 0.0002
+    group_sizes: [18, 18, 18]
+    features: [16, 32, 64]
+    strides: [1, 2, 2]
+    first_conv:
+        filters: 16
+        kernel_size: 3
+        strides: 1
+    shortcut_mode: 'B'
+    block_type: 'preactivated'
+train_parameters:
+    logdir: 'ndz_11'
+    run_name: 'resnet110_pre_wd2'
+    num_steps: 64000
+    log_interval: 400
+    val_interval: 4000
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet110'
+model_parameters:
+    block_type: 'original'
+train_parameters:
+    logdir: 'ndz_11'
+    run_name: 'resnet110_org'
+    num_steps: 64000
+    log_interval: 400
+    val_interval: 4000
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet164'
+model_parameters: {}
+train_parameters:
+    logdir: 'ndz_11'
+    run_name: 'resnet164_bneck'
+    num_steps: 64000
+    log_interval: 400
+    val_interval: 4000
+# ---
+# module: 'Models.Resnets'
+# model: 'cifar_resnet1001'
+# model_parameters: {}
+# train_parameters:
+#     logdir: 'sob_19'
+#     run_name: 'resnet1001_pre'
+#     num_steps: 64000
+#     log_interval: 200
+#     val_interval: 4000
