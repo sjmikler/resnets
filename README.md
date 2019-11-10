@@ -4,5 +4,5 @@ Nice and tidy implementation of classical neural network for classification in t
 Requires:
 - tensorflow 2.0
 
-Set experiments in experiments.yaml
+Set experiments in experiments.yaml \
 Run using: python run_experiments.py
