@@ -53,5 +53,5 @@ train_parameters:
     num_steps: 64000 #(iterations after which the training ends)
     log_interval: 400 #(how often statistics are printed and saved to tensorboard)
     val_interval: 4000 #(how often validation on the test set is done)
-skip_error_test: True #(whether to do a quick run before beginning the actual training)
+skip_error_test: True #(whether to skip a quick run before beginning the actual training)
 ```
