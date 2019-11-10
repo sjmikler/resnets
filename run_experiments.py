@@ -26,7 +26,6 @@ for exp in yaml.safe_load_all(stream):
     if 'skip_error_test' in exp and exp['skip_error_test']:
         continue
         
-    print("\nTEST RUN"); print_dict(exp); print();
     model = getattr(importlib.import_module(exp['module']), exp['model'])
     cifar_error_test(model(**exp['model_parameters']))
     print("OK!")
