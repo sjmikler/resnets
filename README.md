@@ -72,7 +72,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 | ResNet44 v1 | 0.66M | 7.17 | ? | ? |
 | ResNet56 v1 | 0.85M | 6.97 | ? | ? |
 | ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? |
-| ResNet164 v1 |  | ? | 5.93 | ? |
+| ResNet164 v1 | 1.7M | ? | 5.93 | ? |
 | ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 |
-| ResNet164 v2 | | ? | 5.46 | ? |
+| ResNet164 v2 | 1.7M | ? | 5.46 | ? |
 | ResNet1001 v2 | | ? | 4.92 | ? |
