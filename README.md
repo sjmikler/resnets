@@ -7,8 +7,8 @@ Requirements:
 Set experiments in experiments.yaml \
 Run using: python run_experiments.py
 
+## Implemented models (cifar versions only):
 ```
-Implemented models (cifar versions only):
   From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
     - VGG11
     - VGG16
@@ -36,7 +36,7 @@ Implemented models (cifar versions only):
     - EfficientNet
 ```
 
-Default training schedule:
+## Default training schedule:
 - SGD with momentum 0.9
 - warm-up LR = 0.01 for iterations [0, 400)
 - LR = 0.1 for iterations [400, 32000)
@@ -44,7 +44,7 @@ Default training schedule:
 - LR = 0.001 for iterations [48000, 64000)
 - Weight decay = 0.0001
 
-Example of experiment:
+## Example of experiment:
 ```
 module: 'Models.Resnets'
 model: 'cifar_resnet110'
@@ -59,3 +59,20 @@ train_parameters:
     val_interval: 4000 #(how often validation on the test set is done)
 skip_error_test: True #(whether to skip a quick run before beginning the actual training)
 ```
+
+
+## Error rate comparision with reported results:
+
+| architecture | parameters | reported best | reported mean | best of this | mean of this |
+| ---: | :---: | :---: | :---: | :---: | :---: |
+| VGG11 | | ? | ? | ? | ? |
+| VGG16 | | ? | ? | ? | ? |
+| VGG19 | | ? | ? | ? | ? |
+| ResNet20 v1 | | ? | ? | ? | ? |
+| ResNet32 v1 | | ? | ? | ? | ? |
+| ResNet44 v1 | | ? | ? | ? | ? |
+| ResNet56 v1 | | ? | ? | ? | ? |
+| ResNet110 v1 | | 6.61 | ? | ? | ? |
+| ResNet110 v2 | | ? | ? | ? | ? |
+| ResNet164 v2 | | ? | ? | 6.4 | ? |
+| ResNet1001 v2 | | ? | ? | ? | ? |
