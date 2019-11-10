@@ -31,3 +31,27 @@ Implemented models (cifar versions only):
     - Resnet164
     - Resnet1001
 ```
+
+Default training schedule:
+- SGD with momentum 0.9
+- warm-up LR = 0.01 for iterations [0, 400)
+- LR = 0.1 for iterations [400, 32000)
+- LR = 0.01 for iterations [32000, 48000)
+- LR = 0.001 for iterations [48000, 64000)
+- Weight decay = 0.0001
+
+Example of experiment:
+```
+module: 'Models.Resnets'
+model: 'cifar_resnet110'
+model_parameters:
+    shortcut_mode: 'B' #(A or B as in Deep Residual Learning for Image Recognition)
+    block_type: 'original' #(original for Resnet v1, preactivated for Resnet v2)
+train_parameters:
+    logdir: 'logs'
+    run_name: 'resnet110_v1'
+    num_steps: 64000 #(iterations after which the training ends)
+    log_interval: 400 #(how often statistics are printed and saved to tensorboard)
+    val_interval: 4000 #(how often validation on the test set is done)
+skip_error_test: True #(whether to do a quick run before beginning the actual training)
+```
