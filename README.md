@@ -49,15 +49,15 @@ Run using: python run_experiments.py
 module: 'Models.Resnets'
 model: 'cifar_resnet110'
 model_parameters:
-    shortcut_mode: 'B' #(A or B as in Deep Residual Learning for Image Recognition)
-    block_type: 'original' #(original for Resnet v1, preactivated for Resnet v2)
+    shortcut_mode: 'B'        # A or B as in Deep Residual Learning for Image Recognition
+    block_type: 'original'    # original for Resnet v1, preactivated for Resnet v2
 train_parameters:
     logdir: 'logs'
     run_name: 'resnet110_v1'
-    num_steps: 64000 #(iterations after which the training ends)
-    log_interval: 400 #(how often statistics are printed and saved to tensorboard)
-    val_interval: 4000 #(how often validation on the test set is done)
-skip_error_test: True #(whether to skip a quick run before beginning the actual training)
+    num_steps: 64000          # iterations after which the training ends
+    log_interval: 400         # how often statistics are printed and saved to tensorboard
+    val_interval: 4000        # how often validation on the test set is done
+skip_error_test: True         # whether to skip a quick run before beginning the actual training
 ```
 
 
