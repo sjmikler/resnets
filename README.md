@@ -61,7 +61,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 ```
 
 
-## Error rate comparision with reported results:
+## Error rate comparision with reported results on CIFAR-10:
 
 | architecture | parameters | reported best | reported mean | best of this | mean of this |
 | ---: | :---: | :---: | :---: | :---: | :---: |
