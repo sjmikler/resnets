@@ -8,7 +8,7 @@ Set experiments in experiments.yaml \
 Run using: python run_experiments.py
 
 ```
-Implemented models:
+Implemented models (cifar versions only):
   From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
     - VGG11
     - VGG16
