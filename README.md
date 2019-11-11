@@ -15,6 +15,7 @@ Requirements:
 ```
 From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
     - VGG11
+    - VGG13
     - VGG16
     - VGG19
 
