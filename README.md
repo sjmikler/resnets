@@ -7,7 +7,7 @@ Everything in one place, with results matching those reported in papers.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
 
 Requirements:
-- tensorflow-gpu==2.0
+- tensorflow-gpu=2.0
 - tensorflow_datasets
 
 Set experiments in experiments.yaml \
