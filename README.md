@@ -60,9 +60,9 @@ model = cifar_resnet164(load_weights=True)
 ```
 
 ## How to train:
-Set experiments in experiments.yaml \
-Run using: python run_experiments.py
-Open logs with tensorboard
+- Set experiments in experiments.yaml
+- Run using: python run_experiments.py
+- Open logs with tensorboard
 
 ## Default training schedule:
 - SGD with momentum **0.9**
