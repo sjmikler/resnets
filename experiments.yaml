@@ -1,43 +1,19 @@
 module: 'Models.Resnets'
-model: 'Resnet'
-model_parameters:
-    input_shape: [32, 32, 3]
-    n_classes: 10
-    weight_decay: 0.0001
-    group_sizes: [3, 3, 3]
-    features: [16, 32, 64]
-    strides: [1, 2, 2]
-    first_conv:
-        filters: 16
-        kernel_size: 3
-        strides: 1
-    shortcut_type: 'B'
-    block_type: 'preactivated'    
+model: 'cifar_resnet164'
+model_parameters: {}
 train_parameters:
-    logdir: 'ndz_22'
-    run_name: 'resnet20v2_wd1'
+    logdir: 'pon_11'
+    run_name: 'cifar_resnet164'
     num_steps: 64000
     log_interval: 200
     val_interval: 2000
 ---
 module: 'Models.Resnets'
-model: 'Resnet'
-model_parameters:
-    input_shape: [32, 32, 3]
-    n_classes: 10
-    weight_decay: 0.0002
-    group_sizes: [3, 3, 3]
-    features: [16, 32, 64]
-    strides: [1, 2, 2]
-    first_conv:
-        filters: 16
-        kernel_size: 3
-        strides: 1
-    shortcut_type: 'B'
-    block_type: 'preactivated'    
+model: 'cifar_WRN_40_4'
+model_parameters: {} 
 train_parameters:
-    logdir: 'ndz_22'
-    run_name: 'resnet20v2_wd2'
+    logdir: 'pon_11'
+    run_name: 'cifar_WRN_40_4'
     num_steps: 64000
     log_interval: 200
     val_interval: 2000

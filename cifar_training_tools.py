@@ -9,7 +9,7 @@ import tensorflow_datasets as tfds
 from tqdm import tqdm, tqdm_notebook
 
 
-def cifar_training(model, logdir, run_name, val_interval, num_steps, log_interval=50):
+def cifar_training(model, logdir, run_name, val_interval=2000, num_steps=64000, log_interval=200):
 
     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
     schedule = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries=[400, 32000, 48000], values=[0.01, 0.1, 0.01, 0.001])
@@ -134,10 +134,10 @@ def cifar_error_test(model, tr_len=20, vd_len=2):
     @tf.function
     def step(x, y, training):
         with tf.GradientTape() as tape:
+            r_loss = tf.add_n(model.losses)
             outs = model(x, training)
             c_loss = loss_fn(y, outs)
-            r_loss = tf.add_n(model.losses)
-            loss = c_loss + 0.5 * r_loss
+            loss = c_loss + r_loss
 
         if training:
             gradients = tape.gradient(loss, model.trainable_weights)
