@@ -1,4 +1,4 @@
-# cifar-vs-tensorflow2
+# CIFAR vs Tensorflow 2.0
 
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
 Everything in one place, with results matching those reported in papers.
