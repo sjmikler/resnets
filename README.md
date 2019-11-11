@@ -1,7 +1,7 @@
 # CIFAR vs Tensorflow 2.0
 
-Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
-Everything in one place, with results matching those reported in papers.
+Nice and tidy implementation of various neural networks for classification in tensorflow 2.0. \
+Everything in one place with results matching those reported in papers.
 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
