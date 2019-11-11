@@ -10,9 +10,6 @@ Requirements:
 - tensorflow-gpu=2.0
 - tensorflow_datasets
 
-Set experiments in experiments.yaml \
-Run using: python run_experiments.py
-
 ## Implemented models (cifar versions only):
 ```
   From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
@@ -55,20 +52,24 @@ Run using: python run_experiments.py
 - LR = **0.001** for iterations **[48000, 64000)**
 - Weight decay = **0.0001**
 
+## How to train:
+Set experiments in experiments.yaml \
+Run using: python run_experiments.py
+
 ## Example of an experiment:
 ```
-module: 'Models.Resnets'
-model: 'cifar_resnet110'
+module: 'Models.Resnets'      # .py file with models (required)
+model: 'cifar_resnet110'      # function that creates model (required)
 model_parameters:
     shortcut_mode: 'B'        # A or B as in Deep Residual Learning for Image Recognition
     block_type: 'original'    # original for Resnet v1, preactivated for Resnet v2
 train_parameters:
-    logdir: 'logs'
-    run_name: 'resnet110_v1'
+    logdir: 'logs'            # (required)
+    run_name: 'resnet110_v1'  # (required)
     num_steps: 64000          # iterations after which the training ends
     log_interval: 400         # how often statistics are printed and saved to tensorboard
     val_interval: 4000        # how often validation on the test set is done
-skip_error_test: True         # whether to skip a quick run before beginning the actual training
+skip_error_test: False        # whether to skip a quick run before beginning the actual training
 ```
 
 
