@@ -13,38 +13,40 @@ Requirements:
 
 ## Implemented models (cifar versions only):
 ```
+★ if pretrained weights are available and ☆ if not
+
 From "Very Deep Convolutional Network for Large-Scale Image Recognition",
      "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
-    - VGG11
-    - VGG13
-    - VGG16
-    - VGG19
+    ☆ VGG11
+    ☆ VGG13
+    ☆ VGG16
+    ☆ VGG19
 
 From "Deep Residual Learning for Image Recognition":
-    - ResNet20 (1)
-    - ResNet32 (1)
-    - ResNet44 (1)
-    - ResNet56
-    - ResNet110 (1)
+    ★ ResNet20
+    ★ ResNet32
+    ★ ResNet44
+    ★ ResNet56
+    ★ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    - ResNet20 (1)
-    - ResNet32
-    - ResNet44
-    - ResNet56
-    - ResNet110 (1)
-    - ResNet164 (1)
-    - ResNet1001
+    ★ ResNet20
+    ★ ResNet32
+    ★ ResNet44
+    ★ ResNet56
+    ★ ResNet110
+    ★ ResNet164
+    ☆ ResNet1001
     
 From "Wide Residual Networks":
-    - Wide ResNet-40-4
-    - Wide ResNet-16-8
-    - Wide ResNet-28-10
+    ★ Wide ResNet-40-4
+    ☆ Wide ResNet-16-8
+    ☆ Wide ResNet-28-10
     
 Incoming:
     - ResNeXt
     
-(1) - weights can be loaded with 'load_weights' parameter
+★ if pretrained weights are available and ☆ if not
 ```
 
 ## How to get keras model:
@@ -100,15 +102,15 @@ skip_error_test: False        # whether to skip a quick run before beginning the
 | ResNet20 v1 | 0.27M | 8.75 | ? | 8.39-8.55 |
 | ResNet20 v2 | 0.27M | ? | ? | 7.92 |
 | ResNet32 v1 | 0.46M | 7.51 | ? | 7.46 |
-| ResNet32 v2 | 0.46M | ? | ? | ? |
+| ResNet32 v2 | 0.46M | ? | ? | 7.16 |
 | ResNet44 v1 | 0.66M | 7.17 | ? | 7.08 |
-| ResNet44 v2 | 0.66M | ? | ? | ? |
-| ResNet56 v1 | 0.85M | 6.97 | ? | ? |
-| ResNet56 v2 | 0.85M | ? | ? | ? |
+| ResNet44 v2 | 0.66M | ? | ? | 7.07 |
+| ResNet56 v1 | 0.85M | 6.97 | ? | 6.68 |
+| ResNet56 v2 | 0.85M | ? | ? | 6.77 |
 | ResNet110 v1 | 1.7M | 6.43 | 6.61 | 6.59 |
-| ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.1 |
+| ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.10 |
 | ResNet164 v2 | 1.7M | ? | 5.46 | 5.36 |
 | ResNet1001 | 10M | ? | 4.92 | ? |
-| WRN-40-4 | 8.9M | ? | 4.53 | ? |
+| WRN-40-4 | 8.9M | ? | 4.53 | 4.46 |
 | WRN-16-8 | 11.0M | ? | 4.27 | ? |
 | WRN-28-10 | 36.5M | ? | 4.00 | ? |
