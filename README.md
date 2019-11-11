@@ -1,6 +1,10 @@
 # cifar-vs-tensorflow2
+
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
 Everything in one place, with results matching those reported in papers.
+
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
 
 Requirements:
 - tensorflow-gpu==2.0
@@ -71,15 +75,16 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 ## Error rate comparision with results reported on CIFAR-10:
 
 | architecture | parameters | reported best | reported mean | this repository |
-| :--- | :---: | :---: | :---: | :---: |
+| ---: | :---: | :---: | :---: | :---: |
 | VGG16 | | 8.45 | ? | 7.26 |
-| ResNet20 v1 | 0.27M | 8.75 | ? | 8.39 |
-| ResNet32 v1 | 0.46M | 7.51 | ? | ? |
-| ResNet44 v1 | 0.66M | 7.17 | ? | ? |
+| ResNet20 v1 | 0.27M | 8.75 | ? | 8.39-8.55 |
+| ResNet32 v1 | 0.46M | 7.51 | ? | 7.46 |
+| ResNet44 v1 | 0.66M | 7.17 | ? | 7.08 |
 | ResNet56 v1 | 0.85M | 6.97 | ? | ? |
 | ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? |
 | ResNet164 v1 | 1.7M | ? | 5.93 | ? |
-| ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 |
+| ResNet20 v2 | 0.27M | ? | ? | 7.92 |
+| ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.1 |
 | ResNet164 v2 | 1.7M | ? | 5.46 | ? |
 | ResNet1001 v2 | | ? | 4.92 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | ? |
