@@ -13,35 +13,36 @@ Requirements:
 
 ## Implemented models (cifar versions only):
 ```
-  From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
+From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
     - VGG11
     - VGG16
     - VGG19
 
-  From "Deep Residual Learning for Image Recognition":
-    - ResNet20
-    - ResNet32
-    - ResNet44
+From "Deep Residual Learning for Image Recognition":
+    - ResNet20 (1)
+    - ResNet32 (1)
+    - ResNet44 (1)
     - ResNet56
     - ResNet110
 
-  From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    - ResNet20
+From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
+    - ResNet20 (1)
     - ResNet32
     - ResNet44
     - ResNet56
-    - ResNet110
+    - ResNet110 (1)
     - ResNet164
     - ResNet1001
     
-  From "Wide Residual Networks":
+From "Wide Residual Networks":
     - Wide ResNet-40-4
     - Wide ResNet-16-8
     - Wide ResNet-28-10
     
-  TODO:
+Incoming:
     - ResNeXt
-    - EfficientNet
+    
+(1) - weights can be loaded with 'load_weights' parameter
 ```
 
 ## How to get keras model:
