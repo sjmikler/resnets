@@ -1,5 +1,6 @@
 # cifar-vs-tensorflow2
-Nice and tidy implementation of classical neural networks for classification in tensorflow 2.0
+Nice and tidy implementation of various neural networks for classification in tensorflow 2.0.
+Everything in one place, with results matching those reported in papers.
 
 Requirements:
 - tensorflow-gpu==2.0
@@ -31,6 +32,11 @@ Run using: python run_experiments.py
     - ResNet110
     - ResNet164
     - ResNet1001
+    
+  From "Wide Residual Networks":
+    - Wide ResNet-40-4
+    - Wide ResNet-16-8
+    - Wide ResNet-28-10
     
   TODO:
     - ResNeXt
@@ -65,7 +71,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 ## Error rate comparision with results reported on CIFAR-10:
 
 | architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: |
 | VGG16 | | 8.45 | ? | 7.26 |
 | ResNet20 v1 | 0.27M | 8.75 | ? | 8.39 |
 | ResNet32 v1 | 0.46M | 7.51 | ? | ? |
@@ -76,3 +82,6 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 | ResNet110 v2 | 1.7M | ? | 6.37 | 6.1 |
 | ResNet164 v2 | 1.7M | ? | 5.46 | ? |
 | ResNet1001 v2 | | ? | 4.92 | ? |
+| WRN-40-4 | 8.9M | ? | 4.53 | ? |
+| WRN-16-8 | 11.0M | ? | 4.27 | ? |
+| WRN-28-10 | 36.5M | ? | 4.00 | ? |
