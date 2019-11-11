@@ -161,6 +161,7 @@ def cifar_resnet1001(shortcut_type='preactivated_projection', block_type='bootle
 
 
 def cifar_wide_resnet(N, K, shortcut_type='B', block_type='preactivated'):
+    assert (N-4) % 6 == 0, "N-4 has to be divisible by 6"
     lpb = (N-4) // 6 # layers per block - since N is total number of convolutional layers in Wide ResNet
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(lpb, lpb, lpb), features=(16*K, 32*K, 64*K),
                  strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)

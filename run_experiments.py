@@ -31,9 +31,9 @@ for exp in yaml.safe_load_all(stream):
     print("OK!")
     
 
-print('\n' + '#' * 19)
+print('\n' + '#' * 22)
 print("MODEL TRAINING BEGINS!")
-print('#' * 19)
+print('#' * 22)
 
 stream = open('experiments.yaml', 'r')
 for exp in yaml.safe_load_all(stream):
