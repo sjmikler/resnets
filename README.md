@@ -86,7 +86,7 @@ skip_error_test: True         # whether to skip a quick run before beginning the
 | ResNet20 v2 | 0.27M | ? | ? | 7.92 |
 | ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.1 |
 | ResNet164 v2 | 1.7M | ? | 5.46 | ? |
-| ResNet1001 v2 | | ? | 4.92 | ? |
+| ResNet1001 v2 | 10M | ? | 4.92 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | ? |
 | WRN-16-8 | 11.0M | ? | 4.27 | ? |
 | WRN-28-10 | 36.5M | ? | 4.00 | ? |
