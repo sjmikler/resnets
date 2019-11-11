@@ -1,3 +1,4 @@
+import os
 import tensorflow as tf
 
 
@@ -104,54 +105,81 @@ def Resnet(input_shape, n_classes, weight_decay=1e-4, group_sizes=(2, 2, 2), fea
     return model
 
 
-def cifar_resnet20(shortcut_type='B', block_type='preactivated'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(3, 3, 3), features=(16, 32, 64),
+def load_weights_func(model, model_name):
+    try: model.load_weights(os.path.join('saved_models', model_name + '.tf'))
+    except: print("No weights found for this model!")
+    return model
+
+
+def cifar_resnet20(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(3, 3, 3), features=(16, 32, 64),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet20_' + block_type)
+    return model
+
+
+def cifar_resnet32(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(5, 5, 5), features=(16, 32, 64),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet32_' + block_type)
+    return model
+
+
+def cifar_resnet44(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(7, 7, 7), features=(16, 32, 64),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet44_' + block_type)
+    return model
+
+
+def cifar_resnet56(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(9, 9, 9), features=(16, 32, 64),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet56_' + block_type)
+    return model
+
+
+def cifar_resnet110(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(18, 18, 18), features=(16, 32, 64),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet110_' + block_type)
+    return model
+
+
+def cifar_resnet164(shortcut_type='preactivated_projection', block_type='bootleneck', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(18, 18, 18), features=(64, 128, 256),
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet164')
+    return model
+
+
+def cifar_resnet1001(shortcut_type='preactivated_projection', block_type='bootleneck', load_weights=False):
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(111, 111, 111), features=(64, 128, 256),
                  strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet32(shortcut_type='B', block_type='preactivated'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(5, 5, 5), features=(16, 32, 64),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet44(shortcut_type='B', block_type='preactivated'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(7, 7, 7), features=(16, 32, 64),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet56(shortcut_type='B', block_type='preactivated'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(9, 9, 9), features=(16, 32, 64),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet110(shortcut_type='B', block_type='preactivated'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(18, 18, 18), features=(16, 32, 64),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet164(shortcut_type='preactivated_projection', block_type='bootleneck'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(18, 18, 18), features=(64, 128, 256),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
-
-
-def cifar_resnet1001(shortcut_type='preactivated_projection', block_type='bootleneck'):
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(111, 111, 111), features=(64, 128, 256),
-                 strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet1001')
+    return model
 
 
 def cifar_wide_resnet(N, K, shortcut_type='B', block_type='preactivated'):
     lpb = (N-4) // 6 # layers per block - since N is total number of convolutional layers in Wide ResNet
-    return Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(lpb, lpb, lpb), features=(16*K, 32*K, 64*K),
+    model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(lpb, lpb, lpb), features=(16*K, 32*K, 64*K),
                  strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+    return model
 
 
-def cifar_WRN_40_4(shortcut_type='B', block_type='preactivated'):
-    return cifar_wide_resnet(40, 4, shortcut_type, block_type)
+def cifar_WRN_40_4(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = cifar_wide_resnet(40, 4, shortcut_type, block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_WRN_40_4')
+    return model
 
 
-def cifar_WRN_16_8(shortcut_type='B', block_type='preactivated'):
-    return cifar_wide_resnet(16, 8, shortcut_type, block_type)
+def cifar_WRN_16_8(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = cifar_wide_resnet(16, 8, shortcut_type, block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_WRN_16_8')
+    return model
 
 
-def cifar_WRN_28_10(shortcut_type='B', block_type='preactivated'):
-    return cifar_wide_resnet(28, 10, shortcut_type, block_type)
+def cifar_WRN_28_10(shortcut_type='B', block_type='preactivated', load_weights=False):
+    model = cifar_wide_resnet(28, 10, shortcut_type, block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_WRN_28_10')
+    return model

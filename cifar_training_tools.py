@@ -47,10 +47,10 @@ def cifar_training(model, logdir, run_name, val_interval, num_steps, log_interva
     @tf.function
     def step(x, y, training):
         with tf.GradientTape() as tape:
+            r_loss = tf.add_n(model.losses)
             outs = model(x, training)
             c_loss = loss_fn(y, outs)
-            r_loss = tf.add_n(model.losses)
-            loss = c_loss + 0.5 * r_loss
+            loss = c_loss + r_loss
 
         if training:
             gradients = tape.gradient(loss, model.trainable_weights)
