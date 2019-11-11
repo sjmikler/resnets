@@ -79,7 +79,6 @@ Works well for ResNets v1 and v2
 - Weight decay = **0.0001**
 
 ### Training ResNet110 v1 example:
-(note that not all parameters are required)
 ```
 module: 'Models.Resnets'      # .py file with models (required)
 model: 'cifar_resnet110'      # function that creates model (required)
@@ -93,6 +92,7 @@ train_parameters:
     val_interval: 4000        # how often validation on the test set is done
 skip_error_test: False        # whether to skip a quick run before beginning the actual training
 ```
+Note that not all parameters are required.
 
 ### Training Wide ResNet-40-4 example:
 ```
