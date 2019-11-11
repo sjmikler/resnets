@@ -9,6 +9,7 @@ Everything in one place with results matching those reported in papers.
 Requirements:
 - tensorflow-gpu=2.0
 - tensorflow_datasets
+- tensorboard
 
 ## Implemented models (cifar versions only):
 ```
@@ -61,6 +62,7 @@ model = cifar_resnet164(load_weights=True)
 ## How to train:
 Set experiments in experiments.yaml \
 Run using: python run_experiments.py
+Open logs with tensorboard
 
 ## Default training schedule:
 - SGD with momentum **0.9**
