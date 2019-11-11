@@ -13,7 +13,8 @@ Requirements:
 
 ## Implemented models (cifar versions only):
 ```
-From "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
+From "Very Deep Convolutional Network for Large-Scale Image Recognition",
+     "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
     - VGG11
     - VGG13
     - VGG16
