@@ -43,6 +43,25 @@ Requirements:
     - EfficientNet
 ```
 
+## How to get keras model:
+```
+# ResNet110 v1
+from Models.Resnets import cifar_resnet110
+model = cifar_resnet20(block_type='original', load_weights=True)
+
+# ResNet110 v2
+from Models.Resnets import cifar_resnet110
+model = cifar_resnet110(block_type='preactivated', load_weights=True)
+
+# ResNet164
+from Models.Resnets import cifar_resnet164
+model = cifar_resnet164(load_weights=True)
+```
+
+## How to train:
+Set experiments in experiments.yaml \
+Run using: python run_experiments.py
+
 ## Default training schedule:
 - SGD with momentum **0.9**
 - warm-up LR = **0.01** for iterations **[0, 400)**
@@ -50,10 +69,6 @@ Requirements:
 - LR = **0.01** for iterations **[32000, 48000)**
 - LR = **0.001** for iterations **[48000, 64000)**
 - Weight decay = **0.0001**
-
-## How to train:
-Set experiments in experiments.yaml \
-Run using: python run_experiments.py
 
 ## Example of an experiment:
 ```
