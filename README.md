@@ -23,7 +23,6 @@ Requirements:
     - ResNet44
     - ResNet56
     - ResNet110
-    - ResNet1001
 
   From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     - ResNet20
