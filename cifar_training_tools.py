@@ -9,11 +9,12 @@ import tensorflow_datasets as tfds
 from tqdm import tqdm, tqdm_notebook
 
 
-def cifar_training(model, logdir, run_name, val_interval=2000, num_steps=64000, log_interval=200):
+def cifar_training(model, logdir, run_name, lr_values=[0.01, 0.1, 0.01, 0.001], lr_boundaries=[400, 32000, 48000, 64000],
+                   val_interval=2000, log_interval=200, batch_size=128, nesterov=False):
 
     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-    schedule = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries=[400, 32000, 48000], values=[0.01, 0.1, 0.01, 0.001])
-    optimizer = tf.keras.optimizers.SGD(schedule, momentum=0.9)
+    schedule = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries=lr_boundaries[:-1], values=lr_values)
+    optimizer = tf.keras.optimizers.SGD(schedule, momentum=0.9, nesterov=nesterov)
 
     ds = tfds.load('cifar10', as_supervised=True, in_memory=True)
     std = tf.reshape((0.2023, 0.1994, 0.2010), shape=(1, 1, 3))
@@ -32,8 +33,8 @@ def cifar_training(model, logdir, run_name, val_interval=2000, num_steps=64000, 
         x = (x - mean) / std
         return x, y
 
-    ds['train'] = ds['train'].map(train_prep).shuffle(10000).repeat().batch(128).prefetch(-1)
-    ds['test'] = ds['test'].map(valid_prep).batch(512).prefetch(-1)
+    ds['train'] = ds['train'].map(train_prep).shuffle(10000).repeat().batch(batch_size).prefetch(-1)
+    ds['test'] = ds['test'].map(valid_prep).batch(batch_size*4).prefetch(-1)
 
     runid = run_name + '_x' + str(np.random.randint(10000))
     writer = tf.summary.create_file_writer(logdir + '/' + runid)
@@ -63,7 +64,7 @@ def cifar_training(model, logdir, run_name, val_interval=2000, num_steps=64000, 
 
     training_step = 0
     best_validation_acc = 0
-    epochs = num_steps//val_interval
+    epochs = lr_boundaries[-1] // val_interval
     
     for epoch in range(epochs):
         for x, y in tqdm(ds['train'].take(val_interval), desc=f'epoch {epoch+1}/{epochs}',
@@ -104,8 +105,7 @@ def cifar_training(model, logdir, run_name, val_interval=2000, num_steps=64000, 
 def cifar_error_test(model, tr_len=20, vd_len=2):
 
     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-    schedule = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries=[400, 32000, 48000], values=[0.01, 0.1, 0.01, 0.001])
-    optimizer = tf.keras.optimizers.SGD(schedule, momentum=0.9)
+    optimizer = tf.keras.optimizers.SGD(0.01)
 
     ds = tfds.load('cifar10', as_supervised=True, in_memory=True)
     std = tf.reshape((0.2023, 0.1994, 0.2010), shape=(1, 1, 3))
