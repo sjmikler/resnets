@@ -25,7 +25,7 @@ From "Deep Residual Learning for Image Recognition":
     - ResNet32 (1)
     - ResNet44 (1)
     - ResNet56
-    - ResNet110
+    - ResNet110 (1)
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     - ResNet20 (1)
@@ -33,7 +33,7 @@ From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     - ResNet44
     - ResNet56
     - ResNet110 (1)
-    - ResNet164
+    - ResNet164 (1)
     - ResNet1001
     
 From "Wide Residual Networks":
@@ -101,11 +101,10 @@ skip_error_test: False        # whether to skip a quick run before beginning the
 | ResNet32 v1 | 0.46M | 7.51 | ? | 7.46 |
 | ResNet44 v1 | 0.66M | 7.17 | ? | 7.08 |
 | ResNet56 v1 | 0.85M | 6.97 | ? | ? |
-| ResNet110 v1 | 1.7M | 6.43 | 6.61 | ? |
-| ResNet164 v1 | 1.7M | ? | 5.93 | ? |
+| ResNet110 v1 | 1.7M | 6.43 | 6.61 | 6.59 |
 | ResNet20 v2 | 0.27M | ? | ? | 7.92 |
 | ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.1 |
-| ResNet164 v2 | 1.7M | ? | 5.46 | ? |
+| ResNet164 v2 | 1.7M | ? | 5.46 | 5.36 |
 | ResNet1001 v2 | 10M | ? | 4.92 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | ? |
 | WRN-16-8 | 11.0M | ? | 4.27 | ? |
