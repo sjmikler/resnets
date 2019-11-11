@@ -78,13 +78,13 @@ Works well for ResNets v1 and v2
 - for iterations **[48000, 64000)** LR = **0.001**
 - Weight decay = **0.0001**
 
-## Training ResNet110 v1 example: \
+## Training ResNet110 v1 example:
 (note that not all parameters are required)
 ```
 module: 'Models.Resnets'      # .py file with models (required)
 model: 'cifar_resnet110'      # function that creates model (required)
 model_parameters:
-    shortcut_mode: 'B'        # A or B as in Deep Residual Learning for Image Recognition
+    shortcut_mode: 'A'        # A or B as in Deep Residual Learning for Image Recognition
     block_type: 'original'    # original for Resnet v1, preactivated for Resnet v2
 train_parameters:
     logdir: 'logs'            # folder for tensorboard (required)
