@@ -1,0 +1,2 @@
+model_checkpoint_path: "cifar_WRN_40_4_x4910.tf"
+all_model_checkpoint_paths: "cifar_WRN_40_4_x4910.tf"

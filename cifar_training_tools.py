@@ -12,9 +12,9 @@ from tqdm import tqdm, tqdm_notebook
 def cifar_training(model, logdir, run_name, lr_values=[0.01, 0.1, 0.01, 0.001], lr_boundaries=[400, 32000, 48000, 64000],
                    val_interval=2000, log_interval=200, batch_size=128, nesterov=False):
 
-    loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
     schedule = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries=lr_boundaries[:-1], values=lr_values)
     optimizer = tf.keras.optimizers.SGD(schedule, momentum=0.9, nesterov=nesterov)
+    loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
     ds = tfds.load('cifar10', as_supervised=True, in_memory=True)
     std = tf.reshape((0.2023, 0.1994, 0.2010), shape=(1, 1, 3))

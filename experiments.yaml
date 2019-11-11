@@ -1,11 +1,10 @@
 module: 'Models.Resnets'
-model: 'cifar_WRN_40_4'
+model: 'cifar_resnet1001'
 model_parameters: {} 
 train_parameters:
     logdir: 'pon_11'
-    run_name: 'cifar_WRN_40_4'
+    run_name: 'cifar_resnet1001'
     log_interval: 200
     val_interval: 2000
-    lr_values: [0.1, 0.02, 0.004, 0.0008]
-    lr_boundaries: [24000, 48000, 64000, 80000]
-    nesterov: True
+    batch_size: 32
+skip_error_test: True
