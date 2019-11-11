@@ -78,8 +78,8 @@ model_parameters:
     shortcut_mode: 'B'        # A or B as in Deep Residual Learning for Image Recognition
     block_type: 'original'    # original for Resnet v1, preactivated for Resnet v2
 train_parameters:
-    logdir: 'logs'            # (required)
-    run_name: 'resnet110_v1'  # (required)
+    logdir: 'logs'            # folder for tensorboard (required)
+    run_name: 'resnet110_v1'  # name of the run in tensorboard (required)
     num_steps: 64000          # iterations after which the training ends
     log_interval: 400         # how often statistics are printed and saved to tensorboard
     val_interval: 4000        # how often validation on the test set is done
