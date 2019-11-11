@@ -78,7 +78,8 @@ Works well for ResNets v1 and v2
 - for iterations **[48000, 64000)** LR = **0.001**
 - Weight decay = **0.0001**
 
-## Example of an experiment:
+## Training ResNet110 v1 example: \
+(note that not all parameters are required)
 ```
 module: 'Models.Resnets'      # .py file with models (required)
 model: 'cifar_resnet110'      # function that creates model (required)
@@ -88,12 +89,25 @@ model_parameters:
 train_parameters:
     logdir: 'logs'            # folder for tensorboard (required)
     run_name: 'resnet110_v1'  # name of the run in tensorboard (required)
-    num_steps: 64000          # iterations after which the training ends
     log_interval: 400         # how often statistics are printed and saved to tensorboard
     val_interval: 4000        # how often validation on the test set is done
 skip_error_test: False        # whether to skip a quick run before beginning the actual training
 ```
 
+## Training Wide ResNet-40-4 example:
+```
+module: 'Models.Resnets'
+model: 'WRN_40_4'
+model_parameters: {}
+train_parameters:
+    logdir: 'logs'
+    run_name: 'WRN_40_4'
+    log_interval: 400
+    val_interval: 4000
+    lr_values: [0.1, 0.02, 0.004, 0.0008]
+    lr_boundaries: [24000, 48000, 64000, 80000]
+    nesterov: True
+```
 
 ## Error rate comparision with results reported on CIFAR-10:
 
