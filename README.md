@@ -70,11 +70,12 @@ model = cifar_resnet164(load_weights=True)
 - Open logs with tensorboard
 
 ## Default training schedule:
+Works well for ResNets v1 and v2
 - SGD with momentum **0.9**
-- warm-up LR = **0.01** for iterations **[0, 400)**
-- LR = **0.1** for iterations **[400, 32000)**
-- LR = **0.01** for iterations **[32000, 48000)**
-- LR = **0.001** for iterations **[48000, 64000)**
+- for iterations **[0, 400)** LR = **0.01** (warm-up)
+- for iterations **[400, 32000)** LR = **0.1**
+- for iterations **[32000, 48000)** LR = **0.01**
+- for iterations **[48000, 64000)** LR = **0.001**
 - Weight decay = **0.0001**
 
 ## Example of an experiment:
