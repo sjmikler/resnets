@@ -69,7 +69,7 @@ model = cifar_resnet164(load_weights=True)
 - Run using: python run_experiments.py
 - Open logs with tensorboard
 
-## Default training schedule:
+### Default training schedule:
 Works well for ResNets v1 and v2
 - SGD with momentum **0.9**
 - for iterations **[0, 400)** LR = **0.01** (warm-up)
@@ -78,7 +78,7 @@ Works well for ResNets v1 and v2
 - for iterations **[48000, 64000)** LR = **0.001**
 - Weight decay = **0.0001**
 
-## Training ResNet110 v1 example:
+### Training ResNet110 v1 example:
 (note that not all parameters are required)
 ```
 module: 'Models.Resnets'      # .py file with models (required)
@@ -94,7 +94,7 @@ train_parameters:
 skip_error_test: False        # whether to skip a quick run before beginning the actual training
 ```
 
-## Training Wide ResNet-40-4 example:
+### Training Wide ResNet-40-4 example:
 ```
 module: 'Models.Resnets'
 model: 'WRN_40_4'
