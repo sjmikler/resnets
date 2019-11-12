@@ -16,11 +16,11 @@ Requirements:
 ★ if pretrained weights are available and ☆ if not
 
 From "Very Deep Convolutional Network for Large-Scale Image Recognition",
-     "Very Deep Convolutional Neural Network Based Image Classification Using Small Training Sample Size":
-    ☆ VGG11
-    ☆ VGG13
-    ☆ VGG16
-    ☆ VGG19
+     "On Correlation of Features Extracted by Deep NeuralNetworks":
+    ★ VGG11
+    ★ VGG13
+    ★ VGG16
+    ★ VGG19
 
 From "Deep Residual Learning for Image Recognition":
     ★ ResNet20
@@ -113,7 +113,10 @@ train_parameters:
 
 | architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
-| VGG16 | | 8.45 | ? | 7.26 |
+| VGG11 | 9.2M | 7.81 | ? | 8.37 |
+| VGG13 | 9.4M | 6.35 | ? | 6.17 |
+| VGG16 | 14.7M | 6.49 | ? | 6.55 |
+| VGG19 | 20M | 6.76 | ? | 6.72 |
 | ResNet20 v1 | 0.27M | 8.75 | ? | 8.39-8.55 |
 | ResNet20 v2 | 0.27M | ? | ? | 7.92 |
 | ResNet32 v1 | 0.46M | 7.51 | ? | 7.46 |
