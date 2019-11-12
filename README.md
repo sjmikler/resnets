@@ -147,6 +147,7 @@ train_parameters:
 | WRN-40-4 | 8.9M | 4.53 | 4.46 |
 | WRN-16-8 | 11.0M | 4.27 | ? |
 | WRN-28-10 | 36.5M | 4.00 | ? |
+| + dropout | 36.5M | 3.89 | ? |
 
 Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are mostly results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
 
