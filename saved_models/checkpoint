@@ -1,2 +1,2 @@
-model_checkpoint_path: "cifar_resnet1001_x2412.tf"
-all_model_checkpoint_paths: "cifar_resnet1001_x2412.tf"
+model_checkpoint_path: "cifar_WRN_16_4_x6618.tf"
+all_model_checkpoint_paths: "cifar_WRN_16_4_x6618.tf"
