@@ -1,2 +1,2 @@
-model_checkpoint_path: "cifar_WRN_16_4_x6618.tf"
-all_model_checkpoint_paths: "cifar_WRN_16_4_x6618.tf"
+model_checkpoint_path: "cifar_WRN_40_4_x6555.tf"
+all_model_checkpoint_paths: "cifar_WRN_40_4_x6555.tf"
