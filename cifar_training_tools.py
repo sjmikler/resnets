@@ -43,7 +43,7 @@ def cifar_training(model, logdir, run_name, lr_values=[0.01, 0.1, 0.01, 0.001], 
     reg_loss = tf.metrics.Mean()
     
     print(f"RUNID: {runid}")
-    tf.keras.utils.plot_model(model, os.path.join(logdir, runid, 'model_plot.png'))
+    tf.keras.utils.plot_model(model, os.path.join('saved_plots', runid + '.png'))
     
     @tf.function
     def step(x, y, training):
