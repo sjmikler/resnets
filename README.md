@@ -129,6 +129,9 @@ train_parameters:
 | ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.10 |
 | ResNet164 | 1.7M | ? | 5.46 | 5.36 |
 | ResNet1001 | 10M | ? | 4.92 | ? |
+| WRN-16-4 | ? | ? | 5.02 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | 4.46 |
 | WRN-16-8 | 11M | ? | 4.27 | ? |
-| WRN-28-10 | 36.5M | ? | 4.00 | ? |
+| WRN-28-10 | 36.5M | ? | 3.89 | ? |
+
+Some of the papers seem to report best result instead of mean or median one. Results from this repository are neither best nor mean, for most of the networks there have been just one run and its results were reported. Also, a few networks were originally trained on the whole training set of 50.000 examples and validated on the test set, but not all of them. Although this is the method I adopted. This also explains some differencies between this repo's results and ResNets results, although not all of them.
