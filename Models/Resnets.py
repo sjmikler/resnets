@@ -44,13 +44,14 @@ def preactivation_block(x, filters, stride=1):
         flow = bn_relu(x)
         
     c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(flow)
+    if _dropout: c1 = tf.keras.layers.Dropout(_dropout)(c1)
+        
     c2 = regularized_padded_conv(filters, kernel_size=3)(bn_relu(c1))
-    
     x = shortcut(x, filters, stride, mode=_shortcut_type)
     return tf.add(x, c2)
 
 
-def bootleneck_block(x, filters, stride=1):
+def bootleneck_block(x, filters, stride=1, dropout=0):
     global _omit_first_activation
     if _omit_first_activation:
         _omit_first_activation = False
@@ -74,11 +75,13 @@ def group_of_blocks(x, block_type, num_blocks, filters, stride):
 
 
 def Resnet(input_shape, n_classes, weight_decay=1e-4, group_sizes=(2, 2, 2), features=(16, 32, 64), strides=(1, 2, 2),
-          shortcut_type='B', block_type='preactivated', first_conv={"filters": 16, "kernel_size": 3, "strides": 1}):
+           shortcut_type='B', block_type='preactivated', first_conv={"filters": 16, "kernel_size": 3, "strides": 1},
+           dropout=0):
     
-    global _regularizer, _shortcut_type, _omit_first_activation
+    global _regularizer, _shortcut_type, _omit_first_activation, _dropout
     _regularizer = tf.keras.regularizers.l2(weight_decay)
     _shortcut_type = shortcut_type
+    _dropout = dropout
     
     if block_type == 'preactivated':
         selected_block = preactivation_block
@@ -96,7 +99,11 @@ def Resnet(input_shape, n_classes, weight_decay=1e-4, group_sizes=(2, 2, 2), fea
     flow = bn_relu(flow)
     
     for group_size, feature, stride in zip(group_sizes, features, strides):
-        flow = group_of_blocks(flow, block_type=selected_block, num_blocks=group_size, filters=feature, stride=stride)
+        flow = group_of_blocks(flow,
+                               block_type=selected_block,
+                               num_blocks=group_size,
+                               filters=feature,
+                               stride=stride)
     
     if block_type != 'original':
         flow = bn_relu(flow)
@@ -162,27 +169,34 @@ def cifar_resnet1001(shortcut_type='preactivated_projection', block_type='bootle
     return model
 
 
-def cifar_wide_resnet(N, K, shortcut_type='B', block_type='preactivated'):
+def cifar_wide_resnet(N, K, shortcut_type='B', block_type='preactivated', dropout=0.3):
     assert (N-4) % 6 == 0, "N-4 has to be divisible by 6"
     lpb = (N-4) // 6 # layers per block - since N is total number of convolutional layers in Wide ResNet
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, weight_decay=5e-4, group_sizes=(lpb, lpb, lpb), features=(16*K, 32*K, 64*K),
-                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type)
+                   strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, block_type=block_type,
+                   dropout=dropout)
     return model
 
 
-def cifar_WRN_40_4(shortcut_type='B', block_type='preactivated', load_weights=False):
-    model = cifar_wide_resnet(40, 4, shortcut_type, block_type)
+def cifar_WRN_16_4(shortcut_type='B', block_type='preactivated', load_weights=False, dropout=0):
+    model = cifar_wide_resnet(16, 4, shortcut_type, block_type, dropout=dropout)
     if load_weights: model = load_weights_func(model, 'cifar_WRN_40_4')
     return model
 
 
-def cifar_WRN_16_8(shortcut_type='B', block_type='preactivated', load_weights=False):
-    model = cifar_wide_resnet(16, 8, shortcut_type, block_type)
+def cifar_WRN_40_4(shortcut_type='B', block_type='preactivated', load_weights=False, dropout=0.3):
+    model = cifar_wide_resnet(40, 4, shortcut_type, block_type, dropout=dropout)
+    if load_weights: model = load_weights_func(model, 'cifar_WRN_40_4')
+    return model
+
+
+def cifar_WRN_16_8(shortcut_type='B', block_type='preactivated', load_weights=False, dropout=0.3):
+    model = cifar_wide_resnet(16, 8, shortcut_type, block_type, dropout=dropout)
     if load_weights: model = load_weights_func(model, 'cifar_WRN_16_8')
     return model
 
 
-def cifar_WRN_28_10(shortcut_type='B', block_type='preactivated', load_weights=False):
-    model = cifar_wide_resnet(28, 10, shortcut_type, block_type)
+def cifar_WRN_28_10(shortcut_type='B', block_type='preactivated', load_weights=False, dropout=0.3):
+    model = cifar_wide_resnet(28, 10, shortcut_type, block_type, dropout=dropout)
     if load_weights: model = load_weights_func(model, 'cifar_WRN_28_10')
     return model
