@@ -149,13 +149,14 @@ train_parameters:
 | WRN-28-10 | 36.5M | 4.00 | ? |
 | + dropout | 36.5M | 3.89 | ? |
 
-Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are mostly results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
+**Results from this repository are mostly results from a single run**. Some of the papers seem to report best result instead of mean or median one. This is not clear sometimes!
 
 ### Training curves
 All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
 - I use shortcuts of type B (projection) instead of A (padded identity) for ResNets v1
+- Networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 - Using bigger weight decay led to better results in some of the networks, but I don't show this in the comparision
 
