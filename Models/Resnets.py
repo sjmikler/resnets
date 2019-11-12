@@ -52,7 +52,7 @@ def first_activation(x):
 def preactivation_block(x, filters, stride=1):
 
     flow = first_activation(x)
-    c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(x)
+    c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(flow)
     if _dropout: c1 = tf.keras.layers.Dropout(_dropout)(c1)
         
     c2 = regularized_padded_conv(filters, kernel_size=3)(bn_relu(c1))
@@ -63,7 +63,7 @@ def preactivation_block(x, filters, stride=1):
 def bootleneck_block(x, filters, stride=1, dropout=0):
     
     flow = first_activation(x) 
-    c1 = regularized_padded_conv(filters//_width, kernel_size=1)(x)
+    c1 = regularized_padded_conv(filters//_width, kernel_size=1)(flow)
     c2 = regularized_padded_conv(filters//_width, kernel_size=3, strides=stride)(bn_relu(c1))
     c3 = regularized_padded_conv(filters, kernel_size=1)(bn_relu(c2))
     
