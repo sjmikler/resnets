@@ -113,40 +113,40 @@ train_parameters:
 ## Comparision with results reported on CIFAR-10:
 
 #### VGG Networks
-| architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
-| VGG11 | 9.2M | 7.81 | ? | 8.37 |
-| VGG13 | 9.4M | 6.35 | ? | 6.17 |
-| VGG16 | 14.7M | 6.49 | ? | 6.55 |
-| VGG19 | 20.0M | 6.76 | ? | 6.72 |
+| architecture | parameters | reported best | this repository |
+| ---: | :---: | :---: | :---: |
+| VGG11 | 9.2M | 7.81 | 8.37 |
+| VGG13 | 9.4M | 6.35 | 6.17 |
+| VGG16 | 14.7M | 6.49 | 6.55 |
+| VGG19 | 20.0M | 6.76 | 6.72 |
 
 #### ResNets v1
-| architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
-| ResNet20 | 0.27M | 8.75 | ? | 8.39-8.55 |
-| ResNet32 | 0.46M | 7.51 | ? | 7.46 |
-| ResNet44 | 0.66M | 7.17 | ? | 7.08 |
-| ResNet56 | 0.85M | 6.97 | ? | 6.68 |
-| ResNet110 | 1.7M | 6.43 | 6.61 | 6.59 |
+| architecture | parameters | reported best | this repository |
+| ---: | :---: | :---: | :---: |
+| ResNet20 | 0.27M | 8.75 | 8.39-8.55 |
+| ResNet32 | 0.46M | 7.51 | 7.46 |
+| ResNet44 | 0.66M | 7.17 | 7.08 |
+| ResNet56 | 0.85M | 6.97 | 6.68 |
+| ResNet110 | 1.7M | 6.43 | 6.59 |
 
 #### ResNets v2
-| architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
-| ResNet20 | 0.27M | ? | ? | 7.92 |
-| ResNet32 | 0.46M | ? | ? | 7.16 |
-| ResNet44 | 0.66M | ? | ? | 7.07 |
-| ResNet56 | 0.85M | ? | ? | 6.77 |
-| ResNet110 | 1.7M | ? | 6.37 | 5.89-6.10 |
-| ResNet164 | 1.7M | ? | 5.46 | 5.36 |
-| ResNet1001 | 10.3M | ? | 4.92 | ? |
+| architecture | parameters | reported mean | this repository |
+| ---: | :---: | :---: | :---: |
+| ResNet20 | 0.27M | ? | 7.92 |
+| ResNet32 | 0.46M | ? | 7.16 |
+| ResNet44 | 0.66M | ? | 7.07 |
+| ResNet56 | 0.85M | ? | 6.77 |
+| ResNet110 | 1.7M | 6.37 | 5.89-6.10 |
+| ResNet164 | 1.7M | 5.46 | 5.36 |
+| ResNet1001 | 10.3M | 4.92 | ? |
 
 #### Wide ResNets
-| architecture | parameters | reported best | reported mean | this repository |
-| ---: | :---: | :---: | :---: | :---: |
-| WRN-16-4 | 2.7M | ? | 5.02 | ? |
-| WRN-40-4 | 8.9M | ? | 4.53 | 4.46 |
-| WRN-16-8 | 11.0M | ? | 4.27 | ? |
-| WRN-28-10 | 36.5M | ? | 4.00 | ? |
+| architecture | parameters | reported mean | this repository |
+| ---: | :---: | :---: | :---: |
+| WRN-16-4 | 2.7M | 5.02 | ? |
+| WRN-40-4 | 8.9M | 4.53 | 4.46 |
+| WRN-16-8 | 11.0M | 4.27 | ? |
+| WRN-28-10 | 36.5M | 4.00 | ? |
 
 Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are mostly results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
 
