@@ -23,29 +23,29 @@ From "Very Deep Convolutional Network for Large-Scale Image Recognition",
     ★ VGG19
 
 From "Deep Residual Learning for Image Recognition":
-    ★ ResNet20
-    ★ ResNet32
-    ★ ResNet44
-    ★ ResNet56
-    ★ ResNet110
+    ☆ ResNet20
+    ☆ ResNet32
+    ☆ ResNet44
+    ☆ ResNet56
+    ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    ★ ResNet20
-    ★ ResNet32
-    ★ ResNet44
-    ★ ResNet56
-    ★ ResNet110
-    ★ ResNet164
+    ☆ ResNet20
+    ☆ ResNet32
+    ☆ ResNet44
+    ☆ ResNet56
+    ☆ ResNet110
+    ☆ ResNet164
     ☆ ResNet1001
     
 From "Wide Residual Networks":
     ☆ Wide ResNet-16-4
-    ★ Wide ResNet-40-4
+    ☆ Wide ResNet-40-4
     ☆ Wide ResNet-16-8
     ☆ Wide ResNet-28-10
     
-Incoming:
-    - ResNeXt
+Incoming in the near future:
+    ☆ ResNeXt
     
 ★ if pretrained weights are available and ☆ if not
 ```
@@ -54,11 +54,11 @@ Incoming:
 ```
 # ResNet110 v1
 from Models.Resnets import cifar_resnet110
-model = cifar_resnet20(block_type='original', load_weights=True)
+model = cifar_resnet20('original', load_weights=True)
 
 # ResNet110 v2
 from Models.Resnets import cifar_resnet110
-model = cifar_resnet110(block_type='preactivated', load_weights=True)
+model = cifar_resnet110('preactivated', load_weights=True)
 
 # ResNet164
 from Models.Resnets import cifar_resnet164
@@ -77,7 +77,7 @@ Works well for ResNets v1 and v2
 - for iterations **[400, 32000)** LR = **0.1**
 - for iterations **[32000, 48000)** LR = **0.01**
 - for iterations **[48000, 64000)** LR = **0.001**
-- Weight decay = **0.0001**
+- L2 regularization = **0.00005**
 
 ### Training ResNet110 v1 example:
 ```
@@ -129,10 +129,10 @@ train_parameters:
 | ResNet110 v1 | 1.7M | 6.43 | 6.61 | 6.59 |
 | ResNet110 v2 | 1.7M | ? | 6.37 | 5.89-6.10 |
 | ResNet164 | 1.7M | ? | 5.46 | 5.36 |
-| ResNet1001 | 10M | ? | 4.92 | ? |
+| ResNet1001 | 10.3M | ? | 4.92 | ? |
 | WRN-16-4 | 2.7M | ? | 5.02 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | 4.46 |
-| WRN-16-8 | 11M | ? | 4.27 | ? |
-| WRN-28-10 | 36.5M | ? | 3.89 | ? |
+| WRN-16-8 | 11.0M | ? | 4.27 | ? |
+| WRN-28-10 | 36.5M | ? | 4.00 | ? |
 
-Some of the papers seem to report best result instead of mean or median one. Results from this repository are neither best nor mean, for most of the networks there have been just one run and its results were reported. Also, a few networks were originally trained on the whole training set of 50.000 examples and validated on the test set, but not all of them. Although this is the method I adopted. This also explains some differencies between this repo's results and ResNets results, although not all of them.
+Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training. For training original ResNet I use shortcuts of type B (projection) instead of A (padded identity).
