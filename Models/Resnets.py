@@ -116,7 +116,7 @@ def Resnet(input_shape, n_classes, weight_decay=1e-4, group_sizes=(2, 2, 2), fea
 
 def load_weights_func(model, model_name):
     try: model.load_weights(os.path.join('saved_models', model_name + '.tf'))
-    except: print("No weights found for this model!")
+    except tf.errors.NotFoundError: print("No weights found for this model!")
     return model
 
 
