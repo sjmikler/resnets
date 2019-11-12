@@ -138,7 +138,7 @@ train_parameters:
 Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are mostly results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
 
 ### Training curves
-All training logs are available in saved_logs folder. You can open it with tensorboard and compare with your results.
+All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
 - I use shortcuts of type B (projection) instead of A (padded identity) for ResNets v1
