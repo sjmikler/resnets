@@ -39,6 +39,7 @@ From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     ☆ ResNet1001
     
 From "Wide Residual Networks":
+    ☆ Wide ResNet-16-4
     ★ Wide ResNet-40-4
     ☆ Wide ResNet-16-8
     ☆ Wide ResNet-28-10
