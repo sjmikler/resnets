@@ -1,10 +1,38 @@
-module: 'Models.Resnets'
-model: 'cifar_resnet1001'
+module: 'Models.VGGs'
+model: 'cifar_vgg13'
 model_parameters: {} 
 train_parameters:
-    logdir: 'pon_11'
-    run_name: 'cifar_resnet1001'
+    logdir: 'logs'
+    run_name: 'cifar_vgg13'
     log_interval: 200
     val_interval: 2000
-    batch_size: 32
-skip_error_test: True
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet20'
+model_parameters: {} 
+train_parameters:
+    logdir: 'logs'
+    run_name: 'cifar_resnet20'
+    log_interval: 200
+    val_interval: 2000
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet164'
+model_parameters: {} 
+train_parameters:
+    logdir: 'logs'
+    run_name: 'cifar_resnet164'
+    log_interval: 200
+    val_interval: 2000
+---
+module: 'Models.Resnets'
+model: 'WRN_40_4'
+model_parameters: {} 
+train_parameters:
+    logdir: 'logs'
+    run_name: 'WRN_40_4'
+    log_interval: 200
+    val_interval: 2000
+    lr_values: [0.1, 0.02, 0.004, 0.0008]
+    lr_boundaries: [24000, 48000, 64000, 80000]
+    nesterov: True

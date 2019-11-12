@@ -15,14 +15,16 @@ def bn_relu(x):
 def shortcut(x, filters, stride, mode):
     if x.shape[-1] == filters:
         return x
-    if mode == 'preactivated_projection':
+    elif mode == 'preactivated_projection':
         return regularized_padded_conv(filters, kernel_size=1, strides=stride)(bn_relu(x))
-    if mode == 'B' or mode == 'projection':
+    elif mode == 'B' or mode == 'projection':
         return regularized_padded_conv(filters, kernel_size=1, strides=stride)(x)
-    if mode == 'A' or mode == 'padding':
+    elif mode == 'A' or mode == 'padding':
         return tf.pad(tf.keras.layers.MaxPool2D(1, stride)(x) if stride>1 else x,
                       paddings=[(0, 0), (0, 0), (0, 0), (0, filters - x.shape[-1])])
-
+    else:
+        raise KeyError("Parameter shortcut_type not recognized!")
+    
 
 def original_simple_block(x, filters, stride=1):
     c1 = regularized_padded_conv(filters, kernel_size=3, strides=stride)(x)
