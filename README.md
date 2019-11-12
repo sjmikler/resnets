@@ -113,7 +113,7 @@ train_parameters:
 ## Comparision with results reported on CIFAR-10:
 
 #### VGG Networks
-| Architecture | parameters | reported best | reported mean | this repository |
+| architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
 | VGG11 | 9.2M | 7.81 | ? | 8.37 |
 | VGG13 | 9.4M | 6.35 | ? | 6.17 |
@@ -121,7 +121,7 @@ train_parameters:
 | VGG19 | 20.0M | 6.76 | ? | 6.72 |
 
 #### ResNets v1
-| Architecture | parameters | reported best | reported mean | this repository |
+| architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
 | ResNet20 | 0.27M | 8.75 | ? | 8.39-8.55 |
 | ResNet32 | 0.46M | 7.51 | ? | 7.46 |
@@ -130,7 +130,7 @@ train_parameters:
 | ResNet110 | 1.7M | 6.43 | 6.61 | 6.59 |
 
 #### ResNets v2
-| Architecture | parameters | reported best | reported mean | this repository |
+| architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
 | ResNet20 | 0.27M | ? | ? | 7.92 |
 | ResNet32 | 0.46M | ? | ? | 7.16 |
@@ -141,7 +141,7 @@ train_parameters:
 | ResNet1001 | 10.3M | ? | 4.92 | ? |
 
 #### Wide ResNets
-| Architecture | parameters | reported best | reported mean | this repository |
+| architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
 | WRN-16-4 | 2.7M | ? | 5.02 | ? |
 | WRN-40-4 | 8.9M | ? | 4.53 | 4.46 |
