@@ -1,13 +1,12 @@
 # CIFAR vs Tensorflow 2.0
 
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0. \
-Everything in one place with results matching those reported in papers.
-
+Everything in one place with results matching those reported in papers. \
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
 
 Requirements:
-- tensorflow-gpu=2.0
+- tensorflow 2.0
 - tensorflow_datasets
 - tensorboard
 
@@ -50,7 +49,7 @@ Incoming in the near future:
 ★ if pretrained weights are available and ☆ if not
 ```
 
-## How to get keras model:
+## How to get keras models:
 ```
 # ResNet110 v1
 from Models.Resnets import cifar_resnet110
@@ -64,6 +63,7 @@ model = cifar_resnet110('preactivated', load_weights=True)
 from Models.Resnets import cifar_resnet164
 model = cifar_resnet164(load_weights=True)
 ```
+They are ready to train with 'fit' method.
 
 ## How to train:
 - Set experiments in experiments.yaml
@@ -110,7 +110,7 @@ train_parameters:
     nesterov: True
 ```
 
-## Error rate comparision with results reported on CIFAR-10:
+## Comparision with results reported on CIFAR-10:
 
 | architecture | parameters | reported best | reported mean | this repository |
 | ---: | :---: | :---: | :---: | :---: |
@@ -135,10 +135,13 @@ train_parameters:
 | WRN-16-8 | 11.0M | ? | 4.27 | ? |
 | WRN-28-10 | 36.5M | ? | 4.00 | ? |
 
-Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
+Reporting results is not trivial - some of the papers seem to report best result instead of mean or median one. **Results from this repository are mostly results from a single run**. Every network was trained on 50.000 examples and validated on the test set, while the first ResNet paper used only 45.000 images for training.
 
-## Differencies:
-- I use shortcuts of type B (projection) instead of A (padded identity) for ResNet v1
+### Training curves
+All training logs are available in saved_logs folder. You can open it with tensorboard and compare with your results.
+
+### Differences:
+- I use shortcuts of type B (projection) instead of A (padded identity) for ResNets v1
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 - Using bigger weight decay led to better results in some of the networks, but I don't show this in the comparision
 
