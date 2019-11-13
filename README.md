@@ -29,10 +29,6 @@ From "Deep Residual Learning for Image Recognition":
     ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    ☆ ResNet20
-    ☆ ResNet32
-    ☆ ResNet44
-    ☆ ResNet56
     ☆ ResNet110
     ☆ ResNet164
     ☆ ResNet1001
@@ -132,10 +128,6 @@ train_parameters:
 #### ResNets v2
 | architecture | parameters | reported mean | this repository |
 | ---: | :---: | :---: | :---: |
-| ResNet20 | 0.27M | ? | 7.92 8.28 8.4 8.63 |
-| ResNet32 | 0.46M | ? | 7.16 7.59 7.69 |
-| ResNet44 | 0.66M | ? | 7.01 7.07 7.21 |
-| ResNet56 | 0.85M | ? | 6.77 |
 | ResNet110 | 1.7M | 6.37 | 5.89 6.10 |
 | ResNet164 | 1.7M | 5.46 | 5.36 |
 | ResNet1001 | 10.3M | 4.92 | ? |
