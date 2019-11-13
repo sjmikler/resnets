@@ -1,44 +1,4 @@
 module: 'Models.Resnets'
-model: 'cifar_resnet20'
-model_parameters:
-    block_type: 'original'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet20_org'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet32'
-model_parameters:
-    block_type: 'original'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet32_org'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet44'
-model_parameters:
-    block_type: 'original'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet44_org'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet56'
-model_parameters:
-    block_type: 'original'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet56_org'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
 model: 'cifar_resnet110'
 model_parameters:
     block_type: 'original'
@@ -47,46 +7,7 @@ train_parameters:
     run_name: 'cifar_resnet110_org'
     log_interval: 200
     val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet20'
-model_parameters:
-    block_type: 'preactivated'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet20_pre'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet32'
-model_parameters:
-    block_type: 'preactivated'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet32_pre'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet44'
-model_parameters:
-    block_type: 'preactivated'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet44_pre'
-    log_interval: 200
-    val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet56'
-model_parameters:
-    block_type: 'preactivated'
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet56_pre'
-    log_interval: 200
-    val_interval: 2000
+    l2_reg: 0.00005
 ---
 module: 'Models.Resnets'
 model: 'cifar_resnet110'
@@ -97,6 +18,29 @@ train_parameters:
     run_name: 'cifar_resnet110_pre'
     log_interval: 200
     val_interval: 2000
+    l2_reg: 0.00005
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet110'
+model_parameters:
+    block_type: 'original'
+train_parameters:
+    logdir: 'tue_night'
+    run_name: 'cifar_resnet110_org_wd2'
+    log_interval: 200
+    val_interval: 2000
+    l2_reg: 0.0001
+---
+module: 'Models.Resnets'
+model: 'cifar_resnet110'
+model_parameters:
+    block_type: 'preactivated'
+train_parameters:
+    logdir: 'tue_night'
+    run_name: 'cifar_resnet110_pre_wd2'
+    log_interval: 200
+    val_interval: 2000
+    l2_reg: 0.0001
 ---
 module: 'Models.Resnets'
 model: 'cifar_resnet164'
@@ -106,13 +50,4 @@ train_parameters:
     run_name: 'cifar_resnet164'
     log_interval: 200
     val_interval: 2000
----
-module: 'Models.Resnets'
-model: 'cifar_resnet1001'
-model_parameters: {}
-train_parameters:
-    logdir: 'tue_night'
-    run_name: 'cifar_resnet1001'
-    log_interval: 200
-    val_interval: 2000
-    batch_size: 64
+    l2_reg: 0.00005
