@@ -22,15 +22,15 @@ From "Very Deep Convolutional Network for Large-Scale Image Recognition",
     ★ VGG19
 
 From "Deep Residual Learning for Image Recognition":
-    ☆ ResNet20
-    ☆ ResNet32
-    ☆ ResNet44
+    ★ ResNet20
+    ★ ResNet32
+    ★ ResNet44
     ☆ ResNet56
     ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     ☆ ResNet110
-    ☆ ResNet164
+    ★ ResNet164
     ☆ ResNet1001
     
 From "Wide Residual Networks":
@@ -121,7 +121,7 @@ train_parameters:
 | ---: | :---: | :---: | :---: |
 | ResNet20 | 0.27M | 8.75 | **7.99** |
 | ResNet32 | 0.46M | 7.51 | **7.40** |
-| ResNet44 | 0.66M | 7.17 | 7.08 7.25 |
+| ResNet44 | 0.66M | 7.17 | **6.83** |
 | ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
 | ResNet110 | 1.7M | 6.43 | 6.59 |
 
@@ -145,11 +145,11 @@ train_parameters:
 All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
-I did my best to make this implementation identical to the original one. \
-However there are a few differences which I chose consciously.
+I did my best to make the implementation identical to the original one, \
+however there are a few differences in the training, hence results are better.
 
 - I use bigger L2 regularization for ResNets - 1e-4 instead of 5e-5
-- Networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
+- All networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 
 With this repository you can easily define and train the networks for other datasets, e.g. ImageNet.
