@@ -15,9 +15,12 @@ def bn_relu(x):
 def shortcut(x, filters, stride, mode):
     if x.shape[-1] == filters:
         return x
-    elif mode == 'B' or mode == 'projection':
+    elif mode == 'B':
         return regularized_padded_conv(filters, 1, strides=stride)(x)
-    elif mode == 'A' or mode == 'padding':
+    elif mode == 'B_original':
+        x = regularized_padded_conv(filters, 1, strides=stride)(x)
+        return tf.keras.layers.BatchNormalization()(x)
+    elif mode == 'A':
         return tf.pad(tf.keras.layers.MaxPool2D(1, stride)(x) if stride>1 else x,
                       paddings=[(0, 0), (0, 0), (0, 0), (0, filters - x.shape[-1])])
     else:
@@ -25,15 +28,12 @@ def shortcut(x, filters, stride, mode):
     
 
 def original_block(x, filters, stride=1, **kwargs):
-    """
-    conv -> bn -> reu -> conv -> bn -> shortcut -> relu
-    """
     c1 = regularized_padded_conv(filters, 3, strides=stride)(x)
     c2 = regularized_padded_conv(filters, 3)(bn_relu(c1))
     c2 = tf.keras.layers.BatchNormalization()(c2)
     
-    x = shortcut(x, filters, stride, mode=_shortcut_type)
-    x = tf.keras.layers.BatchNormalization()(x)
+    mode = 'B_original' if _shortcut_type == 'B' else _shortcut_type
+    x = shortcut(x, filters, stride, mode=mode)
     return tf.keras.layers.ReLU()(x + c2)
     
     
