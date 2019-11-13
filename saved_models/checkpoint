@@ -1,0 +1,2 @@
+model_checkpoint_path: "cifar_resnet110A_x7620.tf"
+all_model_checkpoint_paths: "cifar_resnet110A_x7620.tf"

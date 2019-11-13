@@ -151,10 +151,10 @@ def cifar_resnet56(block_type='original', shortcut_type='A', load_weights=False,
     return model
 
 
-def cifar_resnet110(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=1e-4):
+def cifar_resnet110(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=1e-4, preact_shortcuts=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(18, 18, 18), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
-                   block_type=block_type)
+                   block_type=block_type, preact_shortcuts=preact_shortcuts)
     if load_weights: model = load_weights_func(model, 'cifar_resnet110_' + block_type)
     return model
 
