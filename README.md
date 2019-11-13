@@ -119,7 +119,7 @@ train_parameters:
 #### ResNets v1
 | architecture | parameters | reported best | this repository |
 | ---: | :---: | :---: | :---: |
-| ResNet20 | 0.27M | 8.75 | 8.44 8.55 8.84 |
+| ResNet20 | 0.27M | 8.75 | **7.99** |
 | ResNet32 | 0.46M | 7.51 | 7.46 7.63 7.96 |
 | ResNet44 | 0.66M | 7.17 | 7.08 7.25 |
 | ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
@@ -141,15 +141,15 @@ train_parameters:
 | WRN-28-10 | 36.5M | 4.00 | ? |
 | + dropout | 36.5M | 3.89 | ? |
 
-**Results from this repository are mostly results from a single run**. Some of the papers seem to report best result instead of mean or median one. This is not clear sometimes!
-
 ### Training curves
 All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
-- I use shortcuts of type B (projection) instead of A (padded identity) for ResNets v1
+I did my best to make this implementation identical to the original one. \
+However there are a few differences which I chose consciously.
+
+- I use bigger weight decay - 2e-4 instead of 1e-4
 - Networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
-- Using bigger weight decay led to better results in some of the networks, but I don't show this in the comparision
 
 With this repository you can easily define and train the networks for other datasets, e.g. ImageNet.
