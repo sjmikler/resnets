@@ -60,8 +60,11 @@ def bootleneck_block(x, filters, stride=1, preact_block=False):
     return tf.add(x, c3)
 
 
-def group_of_blocks(x, block_type, num_blocks, filters, stride):   
-    x = block_type(x, filters, stride, preact_block=True)
+def group_of_blocks(x, block_type, num_blocks, filters, stride, block_num):
+    global _preact_shortcuts
+    preact_block = True if _preact_shortcuts or block_num == 0 else False
+    
+    x = block_type(x, filters, stride, preact_block=preact_block)
     for i in range(num_blocks-1):
         x = block_type(x, filters)
     return x
@@ -69,14 +72,15 @@ def group_of_blocks(x, block_type, num_blocks, filters, stride):
 
 def Resnet(input_shape, n_classes, l2_reg=0.5e-4, group_sizes=(2, 2, 2), features=(16, 32, 64), strides=(1, 2, 2),
            shortcut_type='B', block_type='preactivated', first_conv={"filters": 16, "kernel_size": 3, "strides": 1},
-           dropout=0, cardinality=1, bootleneck_width=4):
+           dropout=0, cardinality=1, bootleneck_width=4, preact_shortcuts=False):
     
-    global _regularizer, _shortcut_type, _preact_projection, _dropout, _cardinality, _bootleneck_width
+    global _regularizer, _shortcut_type, _preact_projection, _dropout, _cardinality, _bootleneck_width, _preact_shortcuts
     _bootleneck_width = bootleneck_width # used in ResNeXts and bootleneck blocks
     _regularizer = tf.keras.regularizers.l2(l2_reg)
     _shortcut_type = shortcut_type # used in blocks
     _cardinality = cardinality # used in ResNeXts
     _dropout = dropout # used in Wide ResNets
+    _preact_shortcuts = preact_shortcuts
     
     block_types = {'preactivated': preactivation_block,
                    'bootleneck': bootleneck_block,
@@ -89,8 +93,9 @@ def Resnet(input_shape, n_classes, l2_reg=0.5e-4, group_sizes=(2, 2, 2), feature
     if block_type == 'original':
         flow = bn_relu(flow)
     
-    for group_size, feature, stride in zip(group_sizes, features, strides):
+    for block_num, (group_size, feature, stride) in enumerate(zip(group_sizes, features, strides)):
         flow = group_of_blocks(flow,
+                               block_num=block_num,
                                block_type=selected_block,
                                num_blocks=group_size,
                                filters=feature,
