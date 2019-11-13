@@ -145,8 +145,7 @@ train_parameters:
 All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
-I did my best to make the implementation identical to the original one, \
-however there are a few differences in the training, hence results are better.
+I did my best to make the implementation identical to the original one, however there are subtle differences in the training:
 
 - I use bigger L2 regularization for ResNets - 1e-4 instead of 5e-5
 - All networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
