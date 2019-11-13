@@ -22,15 +22,15 @@ From "Very Deep Convolutional Network for Large-Scale Image Recognition",
     ★ VGG19
 
 From "Deep Residual Learning for Image Recognition":
-    ☆ ResNet20
-    ☆ ResNet32
-    ☆ ResNet44
-    ☆ ResNet56
+    ★ ResNet20
+    ★ ResNet32
+    ★ ResNet44
+    ★ ResNet56
     ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     ☆ ResNet110
-    ☆ ResNet164
+    ★ ResNet164
     ☆ ResNet1001
     
 From "Wide Residual Networks":
@@ -73,7 +73,7 @@ Works well for ResNets v1 and v2
 - for iterations **[400, 32000)** LR = **0.1**
 - for iterations **[32000, 48000)** LR = **0.01**
 - for iterations **[48000, 64000)** LR = **0.001**
-- L2 regularization = **0.00005** (equal to 0.0001 weight decay)
+- L2 regularization = **0.0001**
 
 ### Training ResNet110 v1 example:
 ```
@@ -113,16 +113,16 @@ train_parameters:
 | ---: | :---: | :---: | :---: |
 | VGG11 | 9.2M | 7.81 | 8.37 |
 | VGG13 | 9.4M | 6.35 | **6.17** |
-| VGG16 | 14.7M | 6.49 | 6.55 |
+| VGG16 | 14.7M | 6.49 | **6.34** |
 | VGG19 | 20.0M | 6.76 | **6.72** |
 
 #### ResNets v1
 | architecture | parameters | reported best | this repository |
 | ---: | :---: | :---: | :---: |
 | ResNet20 | 0.27M | 8.75 | **7.99** |
-| ResNet32 | 0.46M | 7.51 | 7.46 7.63 7.96 |
-| ResNet44 | 0.66M | 7.17 | 7.08 7.25 |
-| ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
+| ResNet32 | 0.46M | 7.51 | **7.40** |
+| ResNet44 | 0.66M | 7.17 | **6.83** |
+| ResNet56 | 0.85M | 6.97 | **6.23** |
 | ResNet110 | 1.7M | 6.43 | 6.59 |
 
 #### ResNets v2
@@ -145,11 +145,10 @@ train_parameters:
 All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
-I did my best to make this implementation identical to the original one. \
-However there are a few differences which I chose consciously.
+I did my best to make the implementation identical to the original one, however there are subtle differences in the training:
 
-- I use bigger weight decay - 2e-4 instead of 1e-4
-- Networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
+- I use bigger L2 regularization for ResNets - 1e-4 instead of 5e-5
+- All networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 
 With this repository you can easily define and train the networks for other datasets, e.g. ImageNet.
