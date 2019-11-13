@@ -120,7 +120,7 @@ train_parameters:
 | architecture | parameters | reported best | this repository |
 | ---: | :---: | :---: | :---: |
 | ResNet20 | 0.27M | 8.75 | **7.99** |
-| ResNet32 | 0.46M | 7.51 | 7.46 7.63 7.96 |
+| ResNet32 | 0.46M | 7.51 | **7.40** |
 | ResNet44 | 0.66M | 7.17 | 7.08 7.25 |
 | ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
 | ResNet110 | 1.7M | 6.43 | 6.59 |
@@ -148,7 +148,7 @@ All training logs are available in saved_logs folder. You can open it with tenso
 I did my best to make this implementation identical to the original one. \
 However there are a few differences which I chose consciously.
 
-- I use bigger weight decay - 2e-4 instead of 1e-4
+- I use bigger L2 regularization for ResNets - 1e-4 instead of 5e-5
 - Networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 
