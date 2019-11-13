@@ -123,10 +123,10 @@ train_parameters:
 #### ResNets v1
 | architecture | parameters | reported best | this repository |
 | ---: | :---: | :---: | :---: |
-| ResNet20 | 0.27M | 8.75 | 8.39-8.55 |
-| ResNet32 | 0.46M | 7.51 | 7.46 |
-| ResNet44 | 0.66M | 7.17 | 7.08 |
-| ResNet56 | 0.85M | 6.97 | 6.68 |
+| ResNet20 | 0.27M | 8.75 | 8.55 8.84 |
+| ResNet32 | 0.46M | 7.51 | 7.46 7.96 |
+| ResNet44 | 0.66M | 7.17 | 7.08 7.25 |
+| ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
 | ResNet110 | 1.7M | 6.43 | 6.59 |
 
 #### ResNets v2
