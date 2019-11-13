@@ -20,11 +20,10 @@ def conv_block(x, num_blocks, filters, pool):
     return x
 
 
-def VGG(input_shape, n_classes, weight_decay=1e-4, group_sizes=(1, 1, 2, 2, 2),
+def VGG(input_shape, n_classes, l2_reg=1e-4, group_sizes=(1, 1, 2, 2, 2),
            features=(64, 128, 256, 512, 512), pools=(2, 2, 2, 2, 2)):
     global _regularizer
-    _regularizer = tf.keras.regularizers.l2(weight_decay)
-    
+    _regularizer = tf.keras.regularizers.l2(l2_reg)
     inputs = tf.keras.layers.Input(shape=input_shape)
     
     flow = inputs
@@ -44,28 +43,28 @@ def load_weights_func(model, model_name):
 
 
 def cifar_vgg11(load_weights=False):
-    model = VGG(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(1, 1, 2, 2, 2), 
+    model = VGG(input_shape=(32, 32, 3), n_classes=10, l2_reg=1e-4, group_sizes=(1, 1, 2, 2, 2), 
                 features=(64, 128, 256, 512, 512), pools=(2, 2, 2, 2, 2))
     if load_weights: model = load_weights_func(model, 'cifar_vgg11')
     return model
 
 
 def cifar_vgg13(load_weights=False):
-    model = VGG(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(2, 2, 2, 2, 2), 
+    model = VGG(input_shape=(32, 32, 3), n_classes=10, l2_reg=1e-4, group_sizes=(2, 2, 2, 2, 2), 
                 features=(64, 128, 256, 512, 512), pools=(2, 2, 2, 2, 2))
     if load_weights: model = load_weights_func(model, 'cifar_vgg13')
     return model
 
 
 def cifar_vgg16(load_weights=False):
-    model = VGG(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(2, 2, 3, 3, 3), 
+    model = VGG(input_shape=(32, 32, 3), n_classes=10, l2_reg=1e-4, group_sizes=(2, 2, 3, 3, 3), 
                 features=(64, 128, 256, 512, 512), pools=(2, 2, 2, 2, 2))
     if load_weights: model = load_weights_func(model, 'cifar_vgg16')
     return model
 
 
 def cifar_vgg19(load_weights=False):
-    model = VGG(input_shape=(32, 32, 3), n_classes=10, weight_decay=1e-4, group_sizes=(2, 2, 4, 4, 4), 
+    model = VGG(input_shape=(32, 32, 3), n_classes=10, l2_reg=1e-4, group_sizes=(2, 2, 4, 4, 4), 
                 features=(64, 128, 256, 512, 512), pools=(2, 2, 2, 2, 2))
     if load_weights: model = load_weights_func(model, 'cifar_vgg19')
     return model

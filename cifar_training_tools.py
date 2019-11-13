@@ -124,8 +124,8 @@ def cifar_error_test(model, tr_len=20, vd_len=2):
         x = (x - mean) / std
         return x, y
 
-    ds['train'] = ds['train'].map(train_prep).batch(128).take(tr_len).prefetch(-1)
-    ds['test'] = ds['test'].map(valid_prep).batch(512).take(vd_len).prefetch(-1)
+    ds['train'] = ds['train'].map(train_prep).batch(5).take(tr_len).prefetch(-1)
+    ds['test'] = ds['test'].map(valid_prep).batch(5).take(vd_len).prefetch(-1)
 
     accuracy = tf.metrics.SparseCategoricalAccuracy()
     cls_loss = tf.metrics.Mean()
