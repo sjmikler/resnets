@@ -25,7 +25,7 @@ From "Deep Residual Learning for Image Recognition":
     ★ ResNet20
     ★ ResNet32
     ★ ResNet44
-    ☆ ResNet56
+    ★ ResNet56
     ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
@@ -73,7 +73,7 @@ Works well for ResNets v1 and v2
 - for iterations **[400, 32000)** LR = **0.1**
 - for iterations **[32000, 48000)** LR = **0.01**
 - for iterations **[48000, 64000)** LR = **0.001**
-- L2 regularization = **0.00005** (equal to 0.0001 weight decay)
+- L2 regularization = **0.0001**
 
 ### Training ResNet110 v1 example:
 ```
@@ -122,7 +122,7 @@ train_parameters:
 | ResNet20 | 0.27M | 8.75 | **7.99** |
 | ResNet32 | 0.46M | 7.51 | **7.40** |
 | ResNet44 | 0.66M | 7.17 | **6.83** |
-| ResNet56 | 0.85M | 6.97 | 6.68 6.92 |
+| ResNet56 | 0.85M | 6.97 | **6.23** |
 | ResNet110 | 1.7M | 6.43 | 6.59 |
 
 #### ResNets v2
