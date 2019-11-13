@@ -112,9 +112,9 @@ train_parameters:
 | architecture | parameters | reported best | this repository |
 | ---: | :---: | :---: | :---: |
 | VGG11 | 9.2M | 7.81 | 8.37 |
-| VGG13 | 9.4M | 6.35 | 6.17 |
+| VGG13 | 9.4M | 6.35 | **6.17** |
 | VGG16 | 14.7M | 6.49 | 6.55 |
-| VGG19 | 20.0M | 6.76 | 6.72 |
+| VGG19 | 20.0M | 6.76 | **6.72** |
 
 #### ResNets v1
 | architecture | parameters | reported best | this repository |
@@ -129,7 +129,7 @@ train_parameters:
 | architecture | parameters | reported mean | this repository |
 | ---: | :---: | :---: | :---: |
 | ResNet110 | 1.7M | 6.37 | 5.89 6.10 |
-| ResNet164 | 1.7M | 5.46 | 5.36 |
+| ResNet164 | 1.7M | 5.46 | **5.27** |
 | ResNet1001 | 10.3M | 4.92 | ? |
 
 #### Wide ResNets
