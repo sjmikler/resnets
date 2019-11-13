@@ -59,7 +59,6 @@ def bootleneck_block(x, filters, stride=1, preact_block=False):
     c1 = regularized_padded_conv(filters//_bootleneck_width, 1)(flow)
     c2 = regularized_padded_conv(filters//_bootleneck_width, 3, strides=stride)(bn_relu(c1))
     c3 = regularized_padded_conv(filters, 1)(bn_relu(c2))
-    
     x = shortcut(x, filters, stride, mode=_shortcut_type)
     return x + c3
 
@@ -76,7 +75,7 @@ def group_of_blocks(x, block_type, num_blocks, filters, stride, block_idx=0):
 
 def Resnet(input_shape, n_classes, l2_reg=0.5e-4, group_sizes=(2, 2, 2), features=(16, 32, 64), strides=(1, 2, 2),
            shortcut_type='B', block_type='preactivated', first_conv={"filters": 16, "kernel_size": 3, "strides": 1},
-           dropout=0, cardinality=1, bootleneck_width=4, preact_shortcuts=False):
+           dropout=0, cardinality=1, bootleneck_width=4, preact_shortcuts=True):
     
     global _regularizer, _shortcut_type, _preact_projection, _dropout, _cardinality, _bootleneck_width, _preact_shortcuts
     _bootleneck_width = bootleneck_width # used in ResNeXts and bootleneck blocks
@@ -120,7 +119,7 @@ def load_weights_func(model, model_name):
     return model
 
 
-def cifar_resnet20(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=0.5e-4):
+def cifar_resnet20(block_type='original', shortcut_type='A', load_weights=False, l2_reg=0.5e-4):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(3, 3, 3), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
@@ -128,7 +127,7 @@ def cifar_resnet20(block_type='preactivated', shortcut_type='B', load_weights=Fa
     return model
 
 
-def cifar_resnet32(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=0.5e-4):
+def cifar_resnet32(block_type='original', shortcut_type='A', load_weights=False, l2_reg=0.5e-4):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(5, 5, 5), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
@@ -136,7 +135,7 @@ def cifar_resnet32(block_type='preactivated', shortcut_type='B', load_weights=Fa
     return model
 
 
-def cifar_resnet44(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=0.5e-4):
+def cifar_resnet44(block_type='original', shortcut_type='A', load_weights=False, l2_reg=0.5e-4):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(7, 7, 7), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
@@ -144,7 +143,7 @@ def cifar_resnet44(block_type='preactivated', shortcut_type='B', load_weights=Fa
     return model
 
 
-def cifar_resnet56(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=0.5e-4):
+def cifar_resnet56(block_type='original', shortcut_type='A', load_weights=False, l2_reg=0.5e-4):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(9, 9, 9), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
