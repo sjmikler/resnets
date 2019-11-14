@@ -31,7 +31,7 @@ From "Deep Residual Learning for Image Recognition":
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
     ★ ResNet110
     ★ ResNet164
-    ☆ ResNet1001
+    ★ ResNet1001
     
 From "Wide Residual Networks":
     ☆ Wide ResNet-16-4
@@ -130,7 +130,7 @@ train_parameters:
 | ---: | :---: | :---: | :---: |
 | ResNet110 | 1.7M | 6.37 | **5.98** |
 | ResNet164 | 1.7M | 5.46 | **5.27** |
-| ResNet1001 | 10.3M | 4.92 | 5.06 |
+| ResNet1001 | 10.3M | 4.92 | **5.06** |
 
 #### Wide ResNets
 | architecture | parameters | reported mean | this repository |
