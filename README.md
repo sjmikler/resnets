@@ -1,4 +1,4 @@
-# CIFAR vs Tensorflow 2.0
+# ResNets in Tensorflow 2.0 on CIFAR-10
 
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0. \
 Everything in one place with results matching those reported in papers.
@@ -10,7 +10,7 @@ Requirements:
 - tensorflow_datasets
 - tensorboard
 
-## Implemented models (cifar versions only):
+## Implemented models (in cifar versions only):
 ```
 ★ if pretrained weights are available and ☆ if not
 
@@ -44,6 +44,7 @@ Incoming in the near future:
     
 ★ if pretrained weights are available and ☆ if not
 ```
+Except for them, there are general functions available which you can use to create ResNet for any dataset.
 
 ## How to get keras models:
 ```
@@ -151,4 +152,3 @@ I did my best to make the implementation identical to the original one, however 
 - All networks are trained on 50.000 examples, whereas some papers use only 45.000 examples
 - I use warm-up iterations for all the networks, not only for ResNet-110 as in original paper
 
-With this repository you can easily define and train the networks for other datasets, e.g. ImageNet.
