@@ -1,2 +1,2 @@
-model_checkpoint_path: "cifar_resnet110_Bfalse_x1758.tf"
-all_model_checkpoint_paths: "cifar_resnet110_Bfalse_x1758.tf"
+model_checkpoint_path: "cifar_resnet101_longer_x475.tf"
+all_model_checkpoint_paths: "cifar_resnet101_longer_x475.tf"
