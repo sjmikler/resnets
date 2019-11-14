@@ -73,9 +73,9 @@ def group_of_blocks(x, block_type, num_blocks, filters, stride, block_idx=0):
     return x
 
 
-def Resnet(input_shape, n_classes, l2_reg=0.5e-4, group_sizes=(2, 2, 2), features=(16, 32, 64), strides=(1, 2, 2),
+def Resnet(input_shape, n_classes, l2_reg=1e-4, group_sizes=(2, 2, 2), features=(16, 32, 64), strides=(1, 2, 2),
            shortcut_type='B', block_type='preactivated', first_conv={"filters": 16, "kernel_size": 3, "strides": 1},
-           dropout=0, cardinality=1, bootleneck_width=4, preact_shortcuts=True):
+           dropout=0, cardinality=1, bootleneck_width=4, preact_shortcuts=False):
     
     global _regularizer, _shortcut_type, _preact_projection, _dropout, _cardinality, _bootleneck_width, _preact_shortcuts
     _bootleneck_width = bootleneck_width # used in ResNeXts and bootleneck blocks
@@ -119,43 +119,43 @@ def load_weights_func(model, model_name):
     return model
 
 
-def cifar_resnet20(block_type='original', shortcut_type='A', load_weights=False, l2_reg=1e-4):
+def cifar_resnet20(block_type='original', shortcut_type='A', l2_reg=1e-4, load_weights=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(3, 3, 3), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
-    if load_weights: model = load_weights_func(model, 'cifar_resnet20_' + block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet20')
     return model
 
 
-def cifar_resnet32(block_type='original', shortcut_type='A', load_weights=False, l2_reg=1e-4):
+def cifar_resnet32(block_type='original', shortcut_type='A', l2_reg=1e-4, load_weights=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(5, 5, 5), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
-    if load_weights: model = load_weights_func(model, 'cifar_resnet32_' + block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet32')
     return model
 
 
-def cifar_resnet44(block_type='original', shortcut_type='A', load_weights=False, l2_reg=1e-4):
+def cifar_resnet44(block_type='original', shortcut_type='A', l2_reg=1e-4, load_weights=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(7, 7, 7), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
-    if load_weights: model = load_weights_func(model, 'cifar_resnet44_' + block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet44')
     return model
 
 
-def cifar_resnet56(block_type='original', shortcut_type='A', load_weights=False, l2_reg=1e-4):
+def cifar_resnet56(block_type='original', shortcut_type='A', l2_reg=1e-4, load_weights=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(9, 9, 9), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
                    block_type=block_type)
-    if load_weights: model = load_weights_func(model, 'cifar_resnet56_' + block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet56')
     return model
 
 
-def cifar_resnet110(block_type='preactivated', shortcut_type='B', load_weights=False, l2_reg=1e-4, preact_shortcuts=False):
+def cifar_resnet110(block_type='preactivated', shortcut_type='B', l2_reg=1e-4, load_weights=False):
     model = Resnet(input_shape=(32, 32, 3), n_classes=10, l2_reg=l2_reg, group_sizes=(18, 18, 18), features=(16, 32, 64),
                    strides=(1, 2, 2), first_conv={"filters": 16, "kernel_size": 3, "strides": 1}, shortcut_type=shortcut_type, 
-                   block_type=block_type, preact_shortcuts=preact_shortcuts)
-    if load_weights: model = load_weights_func(model, 'cifar_resnet110_' + block_type)
+                   block_type=block_type)
+    if load_weights: model = load_weights_func(model, 'cifar_resnet110')
     return model
 
 
