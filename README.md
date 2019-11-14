@@ -26,10 +26,10 @@ From "Deep Residual Learning for Image Recognition":
     ★ ResNet32
     ★ ResNet44
     ★ ResNet56
-    ★ ResNet110
+    ☆ ResNet110
 
 From "Identity Mappings in Deep Residual Networks" (with preactivated layers):
-    ☆ ResNet110
+    ★ ResNet110
     ★ ResNet164
     ☆ ResNet1001
     
