@@ -49,17 +49,17 @@ Incoming in the near future:
 ```
 # ResNet110 v1
 from Models.Resnets import cifar_resnet110
-model = cifar_resnet20('original', load_weights=True)
+model = cifar_resnet20('original', shortcut_type='A')
 
-# ResNet110 v2
+# ResNet110 v2 pretrained
 from Models.Resnets import cifar_resnet110
 model = cifar_resnet110('preactivated', load_weights=True)
 
-# ResNet164
+# ResNet164 pretrained
 from Models.Resnets import cifar_resnet164
 model = cifar_resnet164(load_weights=True)
 ```
-They are ready to train with 'fit' method.
+They are ready to train or test with 'fit' method.
 
 ## How to train:
 - Set experiments in experiments.yaml
@@ -80,8 +80,8 @@ Works well for ResNets v1 and v2
 module: 'Models.Resnets'      # .py file with models (required)
 model: 'cifar_resnet110'      # function that creates model (required)
 model_parameters:
-    shortcut_mode: 'A'        # A or B as in Deep Residual Learning for Image Recognition
     block_type: 'original'    # original for Resnet v1, preactivated for Resnet v2
+    shortcut_mode: 'A'        # A or B as in Deep Residual Learning for Image Recognition
 train_parameters:
     logdir: 'logs'            # folder for tensorboard (required)
     run_name: 'resnet110_v1'  # name of the run in tensorboard (required)
