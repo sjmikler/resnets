@@ -38,20 +38,30 @@ Sources:
 
 ### ResNet
 
-| architecture | parameters | reported best | this repository | CIFAR-10 ckpt | ImageNet ckpt |
-|-------------:|:----------:|:-------------:|:---------------:|---------------|---------------|
-|    ResNet-20 |   0.27M    |     8.75      |      7.99       |               |               |
-|    ResNet-32 |   0.46M    |     7.51      |      7.40       |               |               |
-|    ResNet-44 |   0.66M    |     7.17      |      6.83       |               |               |
-|    ResNet-56 |   0.85M    |     6.97      |      6.23       |               |               |
-|   ResNet-110 |    1.7M    |     6.37      |      5.98       |               |               |
-|   ResNet-164 |    1.7M    |     5.46      |      5.27       |               |               |
-|  ResNet-1001 |   10.3M    |     4.92      |      5.06       |               |               |
+* CIFAR-10
+
+| architecture | parameters | reported best | this repository | checkpoint |
+|-------------:|:----------:|:-------------:|:---------------:|------------|
+|    ResNet-20 |  270,123   |     8.75      |      7.99       |            |
+|    ResNet-32 |   0.46M    |     7.51      |      7.40       |            |
+|    ResNet-44 |   0.66M    |     7.17      |      6.83       |            |
+|    ResNet-56 |   0.85M    |     6.97      |      6.23       |            |
+|   ResNet-110 |    1.7M    |     6.37      |      5.98       |            |
+
+* ImageNet
+
+| architecture | parameters | reported best | this repository | checkpoint |
+|-------------:|:----------:|:-------------:|:---------------:|------------|
+|    ResNet-34 |   0.27M    |     8.75      |      7.99       |            |
+|    ResNet-50 |   0.46M    |     7.51      |      7.40       |            |
+|   ResNet-101 |    1.7M    |     6.37      |      5.98       |            |
+|   ResNet-152 |    1.7M    |     5.46      |      5.27       |            |
 
 Sources:
 
 * [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 * [Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)
+* [Bag of Tricks for Image Classification with Convolutional Neural Networks](https://arxiv.org/abs/1812.01187)
 
 ### Wide ResNet
 
