@@ -29,7 +29,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent",
 ]
-dependencies = []
+dependencies = [
+    "progress-table",
+]
 
 [project.urls]
 Repository = "https://github.com/sjmikler/resnets"
