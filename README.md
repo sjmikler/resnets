@@ -1,4 +1,4 @@
-# Tidy ResNets
+# Resnets
 
 Tidy implementation of classical neural networks for classification.
 
@@ -11,6 +11,14 @@ Available frameworks:
 Everything in one place with results matching those reported in papers.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
+
+## Installation
+
+Install the package with pip:
+
+```bash
+pip install resnets
+```
 
 ## Available architectures
 
