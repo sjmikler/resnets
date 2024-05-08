@@ -1,1 +1,8 @@
+# typical python exclusions
+
 __pycache__
+*.pyc
+
+# custom exclusions
+
+devel
