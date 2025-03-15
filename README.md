@@ -1,4 +1,4 @@
-# ResNets in Tensorflow 2.0 on CIFAR-10
+# resnets for tensorflow 2.0
 
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0. \
 Everything in one place with results matching those reported in papers.
