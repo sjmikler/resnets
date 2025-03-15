@@ -12,7 +12,7 @@ Requirements:
 - tensorboard
 ```
 
-## Implemented models:
+## Implemented models (for CIFAR):
 ```
 ★ if pretrained weights are available and ☆ if not
 
