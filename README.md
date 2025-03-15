@@ -3,12 +3,14 @@
 Nice and tidy implementation of various neural networks for classification in tensorflow 2.0. \
 Everything in one place with results matching those reported in papers.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gahaalt/cifar-vs-tensorflow2/blob/master/Playground.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sjmikler/resnets/blob/master/playground.ipynb)
 
 Requirements:
-- tensorflow 2.0
+```
+- tensorflow>=2.0
 - tensorflow_datasets
 - tensorboard
+```
 
 ## Implemented models (in cifar versions only):
 ```
@@ -39,12 +41,9 @@ From "Wide Residual Networks":
     ☆ Wide ResNet-16-8
     ☆ Wide ResNet-28-10
     
-Incoming in the near future:
-    ☆ ResNeXt
-    
 ★ if pretrained weights are available and ☆ if not
 ```
-Except for them, there are general functions available which you can use to create ResNet for any dataset.
+General functions are available. Use them to create a custom ResNet for any dataset.
 
 ## How to get keras models:
 ```
@@ -60,11 +59,10 @@ model = cifar_resnet110('preactivated', load_weights=True)
 from Models.Resnets import cifar_resnet164
 model = cifar_resnet164(load_weights=True)
 ```
-They are ready to train or test with 'fit' method.
 
 ## How to train:
-- Set experiments in experiments.yaml
-- Run using: python run_experiments.py
+- Define experiments in `experiments.yaml`
+- Run using: `python run_experiments.py`
 - Open logs with tensorboard
 
 ### Default training schedule:
@@ -143,7 +141,7 @@ train_parameters:
 | + dropout | 36.5M | 3.89 | ? |
 
 ### Training curves
-All training logs are available in saved_logs folder. You can open it with tensorboard and compare them with yours.
+All training logs are available in `saved_logs` folder. You can open it with tensorboard and compare them with yours.
 
 ### Differences:
 I did my best to make the implementation identical to the original one, however there are subtle differences in the training:
